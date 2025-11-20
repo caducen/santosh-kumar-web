@@ -100,18 +100,23 @@ export function CTASection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-8"
           >
-            <Button
-              size="lg"
-              className="text-lg px-8 py-6 rounded-full font-semibold bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-white/50 transition-all duration-300 hover:scale-105"
-              onClick={() => {
-                const contactSection = document.getElementById("contact")
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: "smooth" })
-                }
-              }}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Schedule Your Free Call
-            </Button>
+              <Button
+                size="lg"
+                className="text-lg px-8 py-6 rounded-full font-semibold bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-white/50 transition-all duration-300"
+                onClick={() => {
+                  const contactSection = document.getElementById("contact")
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" })
+                  }
+                }}
+              >
+                Schedule Your Free Call
+              </Button>
+            </motion.div>
           </motion.div>
 
           {/* Secondary Text */}
