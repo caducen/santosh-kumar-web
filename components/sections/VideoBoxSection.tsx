@@ -312,9 +312,14 @@ export function VideoBoxSection() {
   return (
     <section
       id="video-box-section"
-      className="relative py-12 lg:py-16 bg-gradient-to-b from-background to-background/50"
+      className="relative py-12 lg:py-16 bg-background overflow-hidden"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background Gradient - Same as About section */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,64,175,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(124,58,237,0.15),transparent_50%)]" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-[60%_40%] gap-12 items-center">
           {/* Left Column - Video */}
           <motion.div
