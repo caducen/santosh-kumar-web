@@ -64,7 +64,7 @@ export default function RootLayout({
         className={`${inter.variable} ${plusJakartaSans.variable} antialiased`}
       >
         <Navigation />
-        <main className="pt-16">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

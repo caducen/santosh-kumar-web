@@ -130,11 +130,14 @@ export function Navigation() {
         animate={{
           backgroundColor: isScrolled
             ? "rgba(15, 23, 42, 0.95)"
-            : "rgba(15, 23, 42, 0)",
-          backdropFilter: isScrolled ? "blur(12px)" : "blur(0px)",
+            : "rgba(255, 255, 255, 0.95)",
+          backdropFilter: "blur(12px)",
         }}
         transition={{ duration: 0.3 }}
-        className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 transition-colors"
+        className="fixed top-0 left-0 right-0 z-50 border-b transition-colors"
+        style={{
+          borderColor: isScrolled ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)",
+        }}
       >
         <nav
           className="container mx-auto px-4 sm:px-6 lg:px-8"
@@ -148,7 +151,7 @@ export function Navigation() {
               aria-label="Santosh Kumar - Home"
             >
               <motion.div
-                className="relative h-11 w-11 flex items-center justify-center"
+                className="relative h-14 w-14 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -156,8 +159,8 @@ export function Navigation() {
                 <Image
                   src="/images/logo.png"
                   alt="Santosh Kumar Logo"
-                  width={44}
-                  height={44}
+                  width={56}
+                  height={56}
                   className="object-contain h-full w-full"
                   priority
                   onError={(e) => {
@@ -168,7 +171,9 @@ export function Navigation() {
                 />
               </motion.div>
               <motion.span
-                className="font-heading text-xl font-bold text-white hidden sm:block"
+                className={`font-heading text-xl font-bold hidden sm:block ${
+                  isScrolled ? "text-white" : "text-gray-900"
+                }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -192,7 +197,9 @@ export function Navigation() {
                     className={`relative text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-md px-2 py-1 ${
                       isActive
                         ? "text-white"
-                        : "text-gray-300 hover:text-white"
+                        : isScrolled
+                        ? "text-gray-300 hover:text-white"
+                        : "text-gray-800 hover:text-gray-900"
                     }`}
                     aria-current={isActive ? "page" : undefined}
                   >
