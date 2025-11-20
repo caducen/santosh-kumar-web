@@ -57,10 +57,15 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="relative py-24 bg-background">
+    <section id="contact" className="relative py-24 bg-background overflow-hidden">
+      {/* Background Gradient - Same as About section */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,64,175,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(124,58,237,0.15),transparent_50%)]" />
+      
       {/* Gold accent bar */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent z-10" />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Column - Contact Info */}
           <motion.div
