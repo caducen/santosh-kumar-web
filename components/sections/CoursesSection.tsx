@@ -197,10 +197,15 @@ export function CoursesSection() {
                       <span className="text-gray-600 text-sm ml-2 font-medium">one-time</span>
                     </div>
                   </div>
-                  <Button className="w-full" size="lg">
-                    Enroll Now
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Button className="w-full" size="lg">
+                      Enroll Now
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </motion.div>
                 </div>
               </Card>
             </motion.div>
@@ -217,8 +222,14 @@ export function CoursesSection() {
           <p className="text-gray-700 mb-4 font-medium">
             Not sure which course is right for you?
           </p>
-          <Button variant="outline" size="lg">
-            Book a Free Consultation
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button variant="outline" size="lg">
+              Book a Free Consultation
+            </Button>
+          </motion.div>
           </Button>
         </motion.div>
       </div>

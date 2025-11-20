@@ -234,10 +234,15 @@ export function ResourcesSection() {
             <p className="text-gray-700 mb-6">
               Join our newsletter to get exclusive resources delivered to your inbox.
             </p>
-            <Button size="lg">
-              Subscribe to Newsletter
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button size="lg">
+                Subscribe to Newsletter
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </motion.div>
           </Card>
         </motion.div>
       </div>

@@ -267,9 +267,11 @@ export function SocialProofSection() {
                 {/* Navigation Dots */}
                 <div className="flex items-center justify-center gap-2 mt-8">
                   {testimonials.map((_, index) => (
-                    <button
+                    <motion.button
                       key={index}
                       onClick={() => setCurrentTestimonial(index)}
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
                       className={`w-2 h-2 rounded-full transition-all duration-300 ${
                         index === currentTestimonial
                           ? "bg-gold w-8"
@@ -281,20 +283,24 @@ export function SocialProofSection() {
                 </div>
 
                 {/* Navigation Arrows */}
-                <button
+                <motion.button
                   onClick={prevTestimonial}
+                  whileHover={{ scale: 1.1, x: -2 }}
+                  whileTap={{ scale: 0.95 }}
                   className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 p-2 rounded-full bg-white backdrop-blur-sm border-2 border-gold hover:bg-gold/10 hover:border-gold transition-all hidden lg:flex items-center justify-center shadow-lg"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft className="w-5 h-5 text-gray-900" />
-                </button>
-                <button
+                </motion.button>
+                <motion.button
                   onClick={nextTestimonial}
+                  whileHover={{ scale: 1.1, x: 2 }}
+                  whileTap={{ scale: 0.95 }}
                   className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 p-2 rounded-full bg-white backdrop-blur-sm border-2 border-gold hover:bg-gold/10 hover:border-gold transition-all hidden lg:flex items-center justify-center shadow-lg"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight className="w-5 h-5 text-gray-900" />
-                </button>
+                </motion.button>
               </div>
             </Card>
           </div>

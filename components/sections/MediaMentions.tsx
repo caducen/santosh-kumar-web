@@ -98,7 +98,11 @@ export function MediaMentions() {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="p-8 text-center bg-white border-2 border-gold/30 hover:border-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group cursor-pointer shadow-lg">
+              <motion.div
+                whileHover={{ scale: 1.05, y: -4 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Card className="p-8 text-center bg-white border-2 border-gold/30 hover:border-gold transition-all duration-300 hover:shadow-xl group cursor-pointer shadow-lg">
                 <div className="mb-4">
                   <div className="text-3xl font-heading font-bold text-gold mb-2">
                     {media.logo}
@@ -111,6 +115,7 @@ export function MediaMentions() {
                   <ExternalLink className="w-4 h-4" />
                 </div>
               </Card>
+              </motion.div>
             </motion.div>
           ))}
         </div>

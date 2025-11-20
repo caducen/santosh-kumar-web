@@ -262,18 +262,23 @@ export function AboutSection() {
               Join 3000+ entrepreneurs who have doubled their income through strategic execution.
               Book a free strategy call and discover how we can help you scale your business.
             </p>
-            <Button
-              size="lg"
-              className="rounded-full px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all"
-              onClick={() => {
-                const contactSection = document.getElementById("contact")
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: "smooth" })
-                }
-              }}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Book Your Free Strategy Call
-            </Button>
+              <Button
+                size="lg"
+                className="rounded-full px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all"
+                onClick={() => {
+                  const contactSection = document.getElementById("contact")
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" })
+                  }
+                }}
+              >
+                Book Your Free Strategy Call
+              </Button>
+            </motion.div>
           </Card>
         </motion.div>
       </div>

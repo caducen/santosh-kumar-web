@@ -92,12 +92,14 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-gray-900">Email</h3>
-                  <a
+                  <motion.a
                     href="mailto:contact@santoshkumar.com"
-                    className="text-gray-700 hover:text-gold transition-colors"
+                    whileHover={{ scale: 1.05, x: 4 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="text-gray-700 hover:text-gold transition-colors inline-block"
                   >
                     contact@santoshkumar.com
-                  </a>
+                  </motion.a>
                 </div>
               </div>
 
@@ -107,12 +109,14 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-gray-900">Phone</h3>
-                  <a
+                  <motion.a
                     href="tel:+1234567890"
-                    className="text-gray-700 hover:text-gold transition-colors"
+                    whileHover={{ scale: 1.05, x: 4 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="text-gray-700 hover:text-gold transition-colors inline-block"
                   >
                     +1 (234) 567-890
-                  </a>
+                  </motion.a>
                 </div>
               </div>
 
@@ -136,7 +140,12 @@ export function ContactSection() {
                 Book a 45-minute consultation and leave with insights worth 6-figures.
                 No obligation, guaranteed value.
               </p>
-              <Button className="w-full bg-gradient-to-r from-gold to-yellow hover:from-gold hover:to-yellow-light text-white font-semibold">Schedule Your Call</Button>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button className="w-full bg-gradient-to-r from-gold to-yellow hover:from-gold hover:to-yellow-light text-white font-semibold">Schedule Your Call</Button>
+              </motion.div>
             </Card>
           </motion.div>
 

@@ -124,18 +124,23 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
             </p>
 
             {/* Learn More Link */}
-            <Link
-              href={service.href}
-              className="inline-flex items-center gap-2 font-semibold text-gold hover:text-gold hover:gap-3 transition-all group/link"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <span>Learn More</span>
-              <motion.span
-                animate={isHovered ? { x: 4 } : { x: 0 }}
-                transition={{ type: "spring", stiffness: 400 }}
+              <Link
+                href={service.href}
+                className="inline-flex items-center gap-2 font-semibold text-gold hover:text-gold hover:gap-3 transition-all group/link"
               >
-                <ArrowRight className="w-5 h-5" />
-              </motion.span>
-            </Link>
+                <span>Learn More</span>
+                <motion.span
+                  animate={isHovered ? { x: 4 } : { x: 0 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  <ArrowRight className="w-5 h-5" />
+                </motion.span>
+              </Link>
+            </motion.div>
           </div>
 
           {/* Hover background glow */}
