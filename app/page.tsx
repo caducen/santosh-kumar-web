@@ -1,6 +1,7 @@
 import Script from "next/script"
 import { HeroSection } from "@/components/sections/HeroSection"
 import { VideoBoxSection } from "@/components/sections/VideoBoxSection"
+import { AboutSection } from "@/components/sections/AboutSection"
 import { ServicesPreview } from "@/components/sections/ServicesPreview"
 import { SocialProofSection } from "@/components/sections/SocialProofSection"
 import { MediaMentions } from "@/components/sections/MediaMentions"
@@ -53,6 +54,9 @@ export default function Home() {
       
       <HeroSection />
       <VideoBoxSection />
+      
+      {/* About Section */}
+      <AboutSection />
       
       {/* Services Section */}
       <section id="services">
