@@ -173,14 +173,37 @@ export function ResourcesSection() {
 
         {/* Resources Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredResources.map((resource, index) => (
-            <motion.div
-              key={resource.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.05 }}
-            >
-              <Card className="h-full p-6 bg-white border-2 border-gold/30 hover:border-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group shadow-lg">
+          {filteredResources.map((resource, index) => {
+            const [isHovered, setIsHovered] = useState(false)
+            return (
+              <motion.div
+                key={resource.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.05 }}
+                onHoverStart={() => setIsHovered(true)}
+                onHoverEnd={() => setIsHovered(false)}
+                className="h-full"
+              >
+                <motion.div
+                  className="relative h-full p-[2px] rounded-lg"
+                  animate={
+                    isHovered
+                      ? {
+                          y: -8,
+                        }
+                      : {
+                          y: 0,
+                        }
+                  }
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  style={{
+                    background: isHovered
+                      ? "linear-gradient(135deg, rgba(255, 155, 0, 0.2), rgba(255, 225, 0, 0.2), rgba(255, 201, 0, 0.2))"
+                      : "transparent",
+                  }}
+                >
+                  <Card className="relative h-full p-6 bg-white border-2 transition-all duration-300 overflow-hidden rounded-lg group shadow-lg hover:border-gold hover:shadow-2xl hover:shadow-gold/30">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="p-3 rounded-lg bg-gold/20 text-gold flex-shrink-0 border-2 border-gold/30">
                     {getIcon(resource.type)}
@@ -215,9 +238,30 @@ export function ResourcesSection() {
                     <ExternalLink className="w-4 h-4" />
                   </Button>
                 </div>
+                    {/* Hover background glow */}
+                    <motion.div
+                      className="absolute inset-0 rounded-lg pointer-events-none opacity-0"
+                      animate={
+                        isHovered
+                          ? {
+                              opacity: 1,
+                            }
+                          : {
+                              opacity: 0,
+                            }
+                      }
+                      transition={{ duration: 0.3 }}
+                      style={{
+                        background:
+                          "radial-gradient(circle at center, rgba(255, 155, 0, 0.1), transparent 70%)",
+                        zIndex: -1,
+                      }}
+                    />
               </Card>
-            </motion.div>
-          ))}
+                </motion.div>
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* CTA */}

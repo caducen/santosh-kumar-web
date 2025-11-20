@@ -113,14 +113,37 @@ export function BeforeAfter() {
 
         {/* Case Studies */}
         <div className="grid md:grid-cols-2 gap-8">
-          {caseStudies.map((study, index) => (
-            <motion.div
-              key={study.company}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-            >
-              <Card className="p-8 bg-white border-2 border-gold/30 hover:border-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1 shadow-lg">
+          {caseStudies.map((study, index) => {
+            const [isHovered, setIsHovered] = useState(false)
+            return (
+              <motion.div
+                key={study.company}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                onHoverStart={() => setIsHovered(true)}
+                onHoverEnd={() => setIsHovered(false)}
+                className="h-full"
+              >
+                <motion.div
+                  className="relative h-full p-[2px] rounded-lg"
+                  animate={
+                    isHovered
+                      ? {
+                          y: -8,
+                        }
+                      : {
+                          y: 0,
+                        }
+                  }
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  style={{
+                    background: isHovered
+                      ? "linear-gradient(135deg, rgba(255, 155, 0, 0.2), rgba(255, 225, 0, 0.2), rgba(255, 201, 0, 0.2))"
+                      : "transparent",
+                  }}
+                >
+                  <Card className="relative h-full p-8 bg-white border-2 transition-all duration-300 overflow-hidden rounded-lg shadow-lg hover:border-gold hover:shadow-2xl hover:shadow-gold/30">
                 <div className="mb-6">
                   <h3 className="font-heading text-2xl font-bold mb-2 text-gray-900">{study.company}</h3>
                   <p className="text-sm text-gray-700 font-medium">{study.industry} • {study.timeline}</p>
@@ -203,9 +226,30 @@ export function BeforeAfter() {
                     <TrendingUp className="w-8 h-8 text-gold" />
                   </div>
                 </div>
+                    {/* Hover background glow */}
+                    <motion.div
+                      className="absolute inset-0 rounded-lg pointer-events-none opacity-0"
+                      animate={
+                        isHovered
+                          ? {
+                              opacity: 1,
+                            }
+                          : {
+                              opacity: 0,
+                            }
+                      }
+                      transition={{ duration: 0.3 }}
+                      style={{
+                        background:
+                          "radial-gradient(circle at center, rgba(255, 155, 0, 0.1), transparent 70%)",
+                        zIndex: -1,
+                      }}
+                    />
               </Card>
-            </motion.div>
-          ))}
+                </motion.div>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>
