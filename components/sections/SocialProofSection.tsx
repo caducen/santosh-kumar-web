@@ -95,16 +95,16 @@ function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardPr
       animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
     >
-      <Card className="p-6 text-center bg-background/90 backdrop-blur-xl border-primary/30 hover:border-gold/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 shadow-lg">
+      <Card className="p-6 text-center bg-background backdrop-blur-xl border-primary/40 hover:border-gold/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 shadow-xl">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-          className="text-3xl md:text-4xl font-heading font-bold text-primary mb-2"
+          className="text-3xl md:text-4xl font-heading font-bold text-white mb-2"
         >
           {displayValue}
         </motion.div>
-        <p className="text-sm text-white/90">{label}</p>
+        <p className="text-sm text-white">{label}</p>
       </Card>
     </motion.div>
   )
@@ -215,11 +215,11 @@ export function SocialProofSection() {
           className="mb-20"
         >
           <div className="relative max-w-4xl mx-auto">
-            <Card className="p-8 md:p-12 bg-background/90 backdrop-blur-xl border-primary/30 shadow-xl">
+            <Card className="p-8 md:p-12 bg-background backdrop-blur-xl border-primary/40 shadow-xl">
               <div className="relative">
                 {/* Quote Icon */}
-                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Quote className="w-6 h-6 text-primary" />
+                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-primary/30 border-2 border-primary/50 flex items-center justify-center shadow-lg">
+                  <Quote className="w-6 h-6 text-white" />
                 </div>
 
                 {/* Testimonials */}
@@ -233,14 +233,14 @@ export function SocialProofSection() {
                       transition={{ duration: 0.5 }}
                       className="text-center"
                     >
-                      <blockquote className="text-lg md:text-xl text-white mb-8 leading-relaxed">
+                      <blockquote className="text-lg md:text-xl text-white font-medium mb-8 leading-relaxed">
                         "{testimonials[currentTestimonial].quote}"
                       </blockquote>
 
                       <div className="flex items-center justify-center gap-4">
                         {/* Photo Placeholder */}
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center border-2 border-primary/30">
-                          <span className="text-primary font-bold text-lg">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/40 to-secondary/40 flex items-center justify-center border-2 border-primary/50 shadow-lg">
+                          <span className="text-white font-bold text-lg">
                             {testimonials[currentTestimonial].author
                               .split(" ")
                               .map((n) => n[0])
@@ -249,10 +249,10 @@ export function SocialProofSection() {
                         </div>
 
                         <div className="text-left">
-                          <p className="font-semibold text-white">
+                          <p className="font-semibold text-white text-base">
                             {testimonials[currentTestimonial].author}
                           </p>
-                          <p className="text-sm text-white/90">
+                          <p className="text-sm text-white">
                             {testimonials[currentTestimonial].role && (
                               <span>{testimonials[currentTestimonial].role}, </span>
                             )}
@@ -290,7 +290,7 @@ export function SocialProofSection() {
                 </button>
                 <button
                   onClick={nextTestimonial}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 p-2 rounded-full bg-background/90 backdrop-blur-sm border border-primary/30 hover:bg-background hover:border-gold/50 transition-all hidden lg:flex items-center justify-center"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 p-2 rounded-full bg-background backdrop-blur-sm border-2 border-primary/50 hover:bg-background hover:border-gold/60 transition-all hidden lg:flex items-center justify-center shadow-lg"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight className="w-5 h-5 text-white" />
