@@ -52,51 +52,81 @@ interface AnimatedStatCardProps {
 }
 
 function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardProps) {
-  const [displayValue, setDisplayValue] = useState(value) // Start with actual value instead of "0"
+  // Always start with the actual value to ensure it's visible
+  const [displayValue, setDisplayValue] = useState(value)
   const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
-    // Only animate if visible and not already animated
-    if (isVisible && !hasAnimated) {
-      setHasAnimated(true)
+    // Always show the value first, then animate if needed
+    if (!isVisible) {
+      return
+    }
+
+    // If already animated, keep showing the value
+    if (hasAnimated) {
+      return
+    }
+
+    setHasAnimated(true)
+    
+    // Extract number and suffix - handle formats like "15+", "3000+", "$50M+"
+    // Handle "M" for millions separately
+    let numericMatch = value.match(/^(\$?)(\d+)([A-Za-z+]*)$/)
+    let isMillions = false
+    let multiplier = 1
+    
+    if (!numericMatch && value.includes("M")) {
+      // Handle "$50M+" format
+      const millionsMatch = value.match(/^(\$?)(\d+)(M\+?)$/)
+      if (millionsMatch) {
+        numericMatch = millionsMatch
+        isMillions = true
+        multiplier = 1000000
+      }
+    }
+    
+    if (numericMatch) {
+      const prefix = numericMatch[1] || ""
+      const targetNum = parseInt(numericMatch[2], 10) * multiplier
+      const suffix = numericMatch[3] || ""
       
-      // Extract number and suffix - handle formats like "15+", "3000+", "$50M+"
-      const numericMatch = value.match(/^(\$?)(\d+)([A-Za-z+]*)$/)
-      
-      if (numericMatch) {
-        const prefix = numericMatch[1] || ""
-        const targetNum = parseInt(numericMatch[2], 10)
-        const suffix = numericMatch[3] || ""
-        
-        // Reset to 0 for animation
+      // Reset to 0 for animation
+      if (isMillions) {
+        setDisplayValue(prefix + "0M+")
+      } else {
         setDisplayValue(prefix + "0" + suffix)
-        
-        const duration = 2000
-        const steps = 60
-        const increment = targetNum / steps
-        let current = 0
-        let step = 0
-        
-        // Start animation after a brief delay
-        const timer = setTimeout(() => {
-          const intervalTimer = setInterval(() => {
-            step++
-            current += increment
-            if (step >= steps || current >= targetNum) {
-              setDisplayValue(value)
-              clearInterval(intervalTimer)
+      }
+      
+      const duration = 2000
+      const steps = 60
+      const increment = targetNum / steps
+      let current = 0
+      let step = 0
+      
+      // Start animation after a brief delay
+      const timer = setTimeout(() => {
+        const intervalTimer = setInterval(() => {
+          step++
+          current += increment
+          if (step >= steps || current >= targetNum) {
+            setDisplayValue(value)
+            clearInterval(intervalTimer)
+          } else {
+            if (isMillions) {
+              const millions = Math.floor(current / 1000000)
+              setDisplayValue(prefix + millions + "M+")
             } else {
               setDisplayValue(prefix + Math.floor(current) + suffix)
             }
-          }, duration / steps)
-          
-          return () => clearInterval(intervalTimer)
-        }, 100)
+          }
+        }, duration / steps)
         
-        return () => clearTimeout(timer)
-      }
-      // If no match, value is already set correctly
+        return () => clearInterval(intervalTimer)
+      }, 100)
+      
+      return () => clearTimeout(timer)
     }
+    // If no match, value is already set correctly from useState
   }, [isVisible, hasAnimated, value])
 
   return (
