@@ -215,11 +215,11 @@ export function SocialProofSection() {
           className="mb-20"
         >
           <div className="relative max-w-4xl mx-auto">
-            <Card className="p-8 md:p-12 bg-background backdrop-blur-xl border-primary/40 shadow-xl">
+            <Card className="p-8 md:p-12 bg-white border-2 border-gold/30 shadow-xl">
               <div className="relative">
                 {/* Quote Icon */}
-                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-primary/30 border-2 border-primary/50 flex items-center justify-center shadow-lg">
-                  <Quote className="w-6 h-6 text-white" />
+                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gold/30 border-2 border-gold flex items-center justify-center shadow-lg">
+                  <Quote className="w-6 h-6 text-gray-900" />
                 </div>
 
                 {/* Testimonials */}
