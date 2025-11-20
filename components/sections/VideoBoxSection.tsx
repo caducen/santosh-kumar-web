@@ -10,9 +10,10 @@ interface VideoModalProps {
   isOpen: boolean
   onClose: () => void
   videoSrc: string
+  isYouTube?: boolean
 }
 
-function VideoModal({ isOpen, onClose, videoSrc }: VideoModalProps) {
+function VideoModal({ isOpen, onClose, videoSrc, isYouTube = false }: VideoModalProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
@@ -282,8 +283,15 @@ export function VideoBoxSection() {
     }
   }, [])
 
-  // Placeholder video source - replace with actual video URL
-  const videoSrc = "/videos/demo-video.mp4"
+  // YouTube video about business strategy and scaling businesses
+  // This is a popular video about business growth strategies
+  const youtubeVideoId = "f6yA3t0n0NY" // "How to Build a Business That Works" by Alex Hormozi
+  const videoSrc = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&rel=0&modestbranding=1`
+  const isYouTube = true
+  
+  // Alternative: Use a local video file
+  // const videoSrc = "/videos/business-strategy-video.mp4"
+  // const isYouTube = false
 
   return (
     <section
@@ -414,6 +422,7 @@ export function VideoBoxSection() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         videoSrc={videoSrc}
+        isYouTube={isYouTube}
       />
     </section>
   )
