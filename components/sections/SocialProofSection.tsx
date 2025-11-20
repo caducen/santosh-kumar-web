@@ -142,13 +142,36 @@ function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardPr
     // If no match, value is already set correctly from useState
   }, [isVisible, hasAnimated, value])
 
+  const [isHovered, setIsHovered] = useState(false)
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      className="h-full"
     >
-      <Card className="p-6 text-center bg-white border-2 border-gold/30 hover:border-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1 shadow-lg">
+      <motion.div
+        className="relative h-full p-[2px] rounded-lg"
+        animate={
+          isHovered
+            ? {
+                y: -8,
+              }
+            : {
+                y: 0,
+              }
+        }
+        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+        style={{
+          background: isHovered
+            ? "linear-gradient(135deg, rgba(255, 155, 0, 0.2), rgba(255, 225, 0, 0.2), rgba(255, 201, 0, 0.2))"
+            : "transparent",
+        }}
+      >
+        <Card className="relative p-6 text-center bg-white border-2 border-gold/30 transition-all duration-300 overflow-hidden rounded-lg shadow-lg hover:border-gold hover:shadow-2xl hover:shadow-gold/30">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
@@ -158,7 +181,27 @@ function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardPr
           {displayValue}
         </motion.div>
         <p className="text-sm text-gray-700 font-medium">{label}</p>
+          {/* Hover background glow */}
+          <motion.div
+            className="absolute inset-0 rounded-lg pointer-events-none opacity-0"
+            animate={
+              isHovered
+                ? {
+                    opacity: 1,
+                  }
+                : {
+                    opacity: 0,
+                  }
+            }
+            transition={{ duration: 0.3 }}
+            style={{
+              background:
+                "radial-gradient(circle at center, rgba(255, 155, 0, 0.1), transparent 70%)",
+              zIndex: -1,
+            }}
+          />
       </Card>
+      </motion.div>
     </motion.div>
   )
 }
