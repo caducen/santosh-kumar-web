@@ -247,21 +247,18 @@ export function HeroSection() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl" />
                 <Image
-                  src="/images/hero-image.jpeg"
+                  src="/images/hero-image.jpg"
                   alt="Santosh Kumar with team at professional event"
                   fill
                   className="object-cover rounded-2xl"
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   onError={(e) => {
-                    // Fallback if image doesn't exist - try .jpg extension
+                    // Fallback if image doesn't exist
                     const target = e.target as HTMLImageElement
-                    if (target.src.includes('.jpeg')) {
-                      target.src = '/images/hero-image.jpg'
-                    } else {
-                      target.style.display = "none"
-                      const parent = target.parentElement?.parentElement
-                      if (parent && !parent.querySelector(".image-fallback")) {
+                    target.style.display = "none"
+                    const parent = target.parentElement?.parentElement
+                    if (parent && !parent.querySelector(".image-fallback")) {
                         const fallback = document.createElement("div")
                         fallback.className = "image-fallback absolute inset-0 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center"
                         fallback.innerHTML = `
