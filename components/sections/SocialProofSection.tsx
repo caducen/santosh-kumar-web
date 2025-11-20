@@ -56,52 +56,47 @@ function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardPr
   const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
-    if (!isVisible || hasAnimated) return
-
-    setHasAnimated(true)
-    
-    // Extract number and suffix - handle formats like "15+", "3000+", "$50M+"
-    const numericMatch = value.match(/^(\$?)(\d+)([A-Za-z+]*)$/)
-    if (numericMatch) {
-      const prefix = numericMatch[1] || ""
-      const targetNum = parseInt(numericMatch[2])
-      const suffix = numericMatch[3] || ""
-      const duration = 2000
-      const steps = 60
-      const increment = targetNum / steps
-      let current = 0
-      let step = 0
+    // Always show the value if visible, even if animation hasn't started
+    if (isVisible && !hasAnimated) {
+      // Start animation immediately
+      setHasAnimated(true)
       
-      const timer = setInterval(() => {
-        step++
-        current += increment
-        if (step >= steps || current >= targetNum) {
-          setDisplayValue(value)
-          clearInterval(timer)
-        } else {
-          setDisplayValue(prefix + Math.floor(current) + suffix)
-        }
-      }, duration / steps)
+      // Extract number and suffix - handle formats like "15+", "3000+", "$50M+"
+      // Try to match patterns like "15+", "200+", "3000+", "$50M+"
+      const numericMatch = value.match(/^(\$?)(\d+)([A-Za-z+]*)$/)
       
-      return () => clearInterval(timer)
-    } else {
-      // If no match, show the value immediately
+      if (numericMatch) {
+        const prefix = numericMatch[1] || ""
+        const targetNum = parseInt(numericMatch[2])
+        const suffix = numericMatch[3] || ""
+        const duration = 2000
+        const steps = 60
+        const increment = targetNum / steps
+        let current = 0
+        let step = 0
+        
+        // Start animation
+        const timer = setInterval(() => {
+          step++
+          current += increment
+          if (step >= steps || current >= targetNum) {
+            setDisplayValue(value)
+            clearInterval(timer)
+          } else {
+            setDisplayValue(prefix + Math.floor(current) + suffix)
+          }
+        }, duration / steps)
+        
+        return () => clearInterval(timer)
+      } else {
+        // If no match (e.g., "15+"), show the value immediately
+        setDisplayValue(value)
+      }
+    } else if (isVisible && displayValue === "0") {
+      // Fallback: if visible but still showing 0, show the value
       setDisplayValue(value)
     }
-  }, [isVisible, hasAnimated, value])
-
-  // Show initial value immediately if visible
-  useEffect(() => {
-    if (isVisible && !hasAnimated) {
-      // Small delay to ensure component is mounted
-      const timer = setTimeout(() => {
-        if (!hasAnimated) {
-          setDisplayValue(value)
-        }
-      }, 100)
-      return () => clearTimeout(timer)
-    }
-  }, [isVisible, value, hasAnimated])
+  }, [isVisible, hasAnimated, value, displayValue])
 
   return (
     <motion.div
@@ -126,7 +121,7 @@ function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardPr
 
 export function SocialProofSection() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true) // Start as true to show values immediately
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -141,10 +136,16 @@ export function SocialProofSection() {
     const element = document.getElementById("social-proof-section")
     if (element) {
       observer.observe(element)
-      // Also check if already visible
-      if (element.getBoundingClientRect().top < window.innerHeight) {
-        setIsVisible(true)
+      // Check if already visible on mount
+      const checkVisibility = () => {
+        const rect = element.getBoundingClientRect()
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setIsVisible(true)
+        }
       }
+      checkVisibility()
+      // Also check after a short delay
+      setTimeout(checkVisibility, 100)
     }
 
     return () => {
