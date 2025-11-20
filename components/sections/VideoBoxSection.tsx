@@ -332,26 +332,21 @@ export function VideoBoxSection() {
               <div className="relative aspect-video bg-gradient-to-br from-primary via-secondary to-accent overflow-hidden">
                 {isYouTube && thumbnailUrl ? (
                   <>
-                    <Image
+                    <img
                       src={thumbnailUrl}
                       alt="Video thumbnail"
-                      fill
-                      className="object-cover"
-                      unoptimized
-                      onError={() => {
-                        // Fallback handled by gradient background
-                      }}
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-black/30" />
                   </>
                 ) : (
                   <div className="absolute inset-0 bg-black/20" />
                 )}
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center z-10">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:bg-white transition-colors z-10"
+                    className="w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:bg-white transition-colors"
                   >
                     <Play className="w-10 h-10 text-primary ml-1" fill="currentColor" />
                   </motion.div>
