@@ -189,9 +189,9 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
               >
-                <Card className="p-6 h-full bg-background/60 backdrop-blur-sm border-white/10 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/10">
+                <Card className="p-6 h-full bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/20 shadow-lg">
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="p-3 rounded-xl bg-primary/10 border border-primary/20">
+                    <div className="p-3 rounded-xl bg-primary/20 border border-primary/40">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
@@ -203,7 +203,7 @@ export function AboutSection() {
                       </div>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-400">{achievement.description}</p>
+                  <p className="text-sm text-white/90">{achievement.description}</p>
                 </Card>
               </motion.div>
             )
@@ -228,16 +228,16 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
               >
-                <Card className="p-8 bg-background/60 backdrop-blur-sm border-white/10 hover:border-primary/30 transition-all">
+                <Card className="p-8 bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 transition-all shadow-lg">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-xl bg-primary/10 border border-primary/20 flex-shrink-0">
+                    <div className="p-3 rounded-xl bg-primary/20 border border-primary/40 flex-shrink-0">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h4 className="text-xl font-heading font-bold text-white mb-2">
                         {value.title}
                       </h4>
-                      <p className="text-gray-300 leading-relaxed">{value.description}</p>
+                      <p className="text-white/90 leading-relaxed">{value.description}</p>
                     </div>
                   </div>
                 </Card>
@@ -254,11 +254,11 @@ export function AboutSection() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center"
         >
-          <Card className="p-8 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 border-primary/20 backdrop-blur-sm inline-block">
+          <Card className="p-8 bg-background/90 backdrop-blur-sm border-primary/30 shadow-xl inline-block">
             <h3 className="text-2xl font-heading font-bold text-white mb-4">
               Ready to Transform Your Business?
             </h3>
-            <p className="text-gray-300 mb-6 max-w-2xl">
+            <p className="text-white/90 mb-6 max-w-2xl">
               Join 3000+ entrepreneurs who have doubled their income through strategic execution.
               Book a free strategy call and discover how we can help you scale your business.
             </p>
