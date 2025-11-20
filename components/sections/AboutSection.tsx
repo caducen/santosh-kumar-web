@@ -84,7 +84,7 @@ export function AboutSection() {
               Forbes
             </span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-primary max-w-3xl mx-auto leading-relaxed">
             A proven business strategist dedicated to helping entrepreneurs double their income
             through strategic execution and expert guidance.
           </p>
@@ -134,7 +134,7 @@ export function AboutSection() {
               <h3 className="text-2xl sm:text-3xl font-heading font-bold text-white">
                 The Journey
               </h3>
-              <div className="space-y-4 text-gray-100 leading-relaxed">
+              <div className="space-y-4 text-primary leading-relaxed">
                 <p>
                   Santosh Kumar's journey began with a simple belief: every entrepreneur has the
                   potential to build a thriving, scalable business. What separates the successful
@@ -158,10 +158,10 @@ export function AboutSection() {
 
             {/* Mission */}
             <Card className="p-6 bg-background/90 backdrop-blur-sm border-primary/30 shadow-lg">
-              <h4 className="text-xl font-heading font-bold text-white mb-3">
+              <h4 className="text-xl font-heading font-bold text-primary mb-3">
                 The Mission
               </h4>
-              <p className="text-white leading-relaxed">
+              <p className="text-primary leading-relaxed">
                 "My mission is to democratize business success. I believe that with the right
                 strategy, framework, and guidance, any entrepreneur can double their income and
                 build a business that not only survives but thrives. Every business owner deserves
