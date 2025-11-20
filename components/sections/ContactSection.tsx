@@ -57,14 +57,14 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="relative py-24 bg-background overflow-hidden">
-      {/* Background Gradient - Same as About section */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,64,175,0.15),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(124,58,237,0.15),transparent_50%)]" />
+    <section id="contact" className="relative py-24 bg-gradient-to-br from-yellow-pale/30 via-white to-yellow-light/20 overflow-hidden">
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF9B00' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+      }} />
       
-      {/* Gold accent bar */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent z-10" />
+      {/* Accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent z-10" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Column - Contact Info */}
@@ -76,10 +76,10 @@ export function ContactSection() {
             className="space-y-8"
           >
             <div>
-              <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-white">
+              <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
                 Let's Start Your Growth Journey
               </h2>
-              <p className="text-lg text-white/90 mb-8">
+              <p className="text-lg text-gray-700 mb-8">
                 Ready to double your income? Book a free strategy call and discover
                 how we can transform your business together.
               </p>
@@ -87,14 +87,14 @@ export function ContactSection() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-primary/10 text-primary">
+                <div className="p-3 rounded-lg bg-gold/20 text-gold">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1 text-white">Email</h3>
+                  <h3 className="font-semibold mb-1 text-gray-900">Email</h3>
                   <a
                     href="mailto:contact@santoshkumar.com"
-                    className="text-white/90 hover:text-gold transition-colors"
+                    className="text-gray-700 hover:text-gold transition-colors"
                   >
                     contact@santoshkumar.com
                   </a>
@@ -102,14 +102,14 @@ export function ContactSection() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-primary/10 text-primary">
+                <div className="p-3 rounded-lg bg-gold/20 text-gold">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1 text-white">Phone</h3>
+                  <h3 className="font-semibold mb-1 text-gray-900">Phone</h3>
                   <a
                     href="tel:+1234567890"
-                    className="text-white/90 hover:text-gold transition-colors"
+                    className="text-gray-700 hover:text-gold transition-colors"
                   >
                     +1 (234) 567-890
                   </a>
@@ -117,12 +117,12 @@ export function ContactSection() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-primary/10 text-primary">
+                <div className="p-3 rounded-lg bg-gold/20 text-gold">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1 text-white">Location</h3>
-                  <p className="text-white/90">
+                  <h3 className="font-semibold mb-1 text-gray-900">Location</h3>
+                  <p className="text-gray-700">
                     Available Worldwide<br />
                     Remote Consultations
                   </p>
@@ -130,13 +130,13 @@ export function ContactSection() {
               </div>
             </div>
 
-            <Card className="p-6 bg-background/90 backdrop-blur-sm border-primary/30 hover:border-gold/50 transition-all shadow-lg">
-              <h3 className="font-semibold mb-2 text-white">Free Strategy Call</h3>
-              <p className="text-sm text-white/90 mb-4">
+            <Card className="p-6 bg-white border-2 border-gold/30 hover:border-gold transition-all shadow-lg">
+              <h3 className="font-semibold mb-2 text-gray-900">Free Strategy Call</h3>
+              <p className="text-sm text-gray-700 mb-4">
                 Book a 45-minute consultation and leave with insights worth 6-figures.
                 No obligation, guaranteed value.
               </p>
-              <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:from-gold hover:to-gold/80">Schedule Your Call</Button>
+              <Button className="w-full bg-gradient-to-r from-gold to-yellow hover:from-gold hover:to-yellow-light text-white font-semibold">Schedule Your Call</Button>
             </Card>
           </motion.div>
 
@@ -147,8 +147,8 @@ export function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Card className="p-8 bg-background/90 backdrop-blur-xl border-primary/30 hover:border-gold/30 transition-all shadow-xl">
-              <h3 className="font-heading text-2xl font-bold mb-6 text-white">Send a Message</h3>
+            <Card className="p-8 bg-white border-2 border-gold/30 hover:border-gold transition-all shadow-xl">
+              <h3 className="font-heading text-2xl font-bold mb-6 text-gray-900">Send a Message</h3>
               
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
