@@ -60,7 +60,7 @@ function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardPr
 
     setHasAnimated(true)
     
-    // Extract number and suffix
+    // Extract number and suffix - handle formats like "15+", "3000+", "$50M+"
     const numericMatch = value.match(/^(\$?)(\d+)([A-Za-z+]*)$/)
     if (numericMatch) {
       const prefix = numericMatch[1] || ""
@@ -85,9 +85,23 @@ function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardPr
       
       return () => clearInterval(timer)
     } else {
+      // If no match, show the value immediately
       setDisplayValue(value)
     }
   }, [isVisible, hasAnimated, value])
+
+  // Show initial value immediately if visible
+  useEffect(() => {
+    if (isVisible && !hasAnimated) {
+      // Small delay to ensure component is mounted
+      const timer = setTimeout(() => {
+        if (!hasAnimated) {
+          setDisplayValue(value)
+        }
+      }, 100)
+      return () => clearTimeout(timer)
+    }
+  }, [isVisible, value, hasAnimated])
 
   return (
     <motion.div
@@ -127,6 +141,10 @@ export function SocialProofSection() {
     const element = document.getElementById("social-proof-section")
     if (element) {
       observer.observe(element)
+      // Also check if already visible
+      if (element.getBoundingClientRect().top < window.innerHeight) {
+        setIsVisible(true)
+      }
     }
 
     return () => {
