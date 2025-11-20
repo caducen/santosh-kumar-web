@@ -195,7 +195,7 @@ export function AboutSection() {
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <div className="text-2xl font-heading font-bold text-white">
+                      <div className="text-2xl font-heading font-bold text-primary">
                         {achievement.number}
                       </div>
                       <div className="text-sm font-semibold text-primary">
@@ -203,7 +203,7 @@ export function AboutSection() {
                       </div>
                     </div>
                   </div>
-                  <p className="text-sm text-white/90">{achievement.description}</p>
+                  <p className="text-sm text-primary">{achievement.description}</p>
                 </Card>
               </motion.div>
             )
@@ -234,10 +234,10 @@ export function AboutSection() {
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-heading font-bold text-white mb-2">
+                      <h4 className="text-xl font-heading font-bold text-primary mb-2">
                         {value.title}
                       </h4>
-                      <p className="text-white/90 leading-relaxed">{value.description}</p>
+                      <p className="text-primary leading-relaxed">{value.description}</p>
                     </div>
                   </div>
                 </Card>
@@ -255,10 +255,10 @@ export function AboutSection() {
           className="text-center"
         >
           <Card className="p-8 bg-background/90 backdrop-blur-sm border-primary/30 shadow-xl inline-block">
-            <h3 className="text-2xl font-heading font-bold text-white mb-4">
+            <h3 className="text-2xl font-heading font-bold text-primary mb-4">
               Ready to Transform Your Business?
             </h3>
-            <p className="text-white/90 mb-6 max-w-2xl">
+            <p className="text-primary mb-6 max-w-2xl">
               Join 3000+ entrepreneurs who have doubled their income through strategic execution.
               Book a free strategy call and discover how we can help you scale your business.
             </p>
