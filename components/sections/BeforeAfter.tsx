@@ -82,15 +82,15 @@ export function BeforeAfter() {
   return (
     <section
       id="before-after"
-      className="relative py-24 bg-background overflow-hidden"
+      className="relative py-24 bg-gradient-to-br from-yellow-pale/30 via-white to-yellow-light/20 overflow-hidden"
     >
-      {/* Background Gradient - Same as About section */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,64,175,0.15),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(124,58,237,0.15),transparent_50%)]" />
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-white" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,155,0,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,225,0,0.1),transparent_50%)]" />
       
-      {/* Gold accent bar */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent z-10" />
+      {/* Accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent z-10" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Heading */}
         <motion.div
@@ -99,14 +99,14 @@ export function BeforeAfter() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
-            <TrendingUp className="w-5 h-5 text-primary" />
-            <span className="text-sm font-semibold text-primary">Proven Results</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/20 border-2 border-gold rounded-full mb-4">
+            <TrendingUp className="w-5 h-5 text-gold" />
+            <span className="text-sm font-semibold text-gold">Proven Results</span>
           </div>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-white">
+          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
             Real Results, Real Impact
           </h2>
-          <p className="text-lg text-white/90 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             See how businesses transform with strategic execution
           </p>
         </motion.div>
@@ -120,34 +120,34 @@ export function BeforeAfter() {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <Card className="p-8 bg-background/90 backdrop-blur-xl border-primary/30 hover:border-gold/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 shadow-lg">
+              <Card className="p-8 bg-white border-2 border-gold/30 hover:border-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1 shadow-lg">
                 <div className="mb-6">
-                  <h3 className="font-heading text-2xl font-bold mb-2 text-white">{study.company}</h3>
-                  <p className="text-sm text-white/90">{study.industry} • {study.timeline}</p>
+                  <h3 className="font-heading text-2xl font-bold mb-2 text-gray-900">{study.company}</h3>
+                  <p className="text-sm text-gray-700 font-medium">{study.industry} • {study.timeline}</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-6 mb-6">
                   {/* Before */}
                   <div>
-                    <div className="text-xs font-semibold text-white/80 uppercase tracking-wide mb-3">
+                    <div className="text-xs font-semibold text-gray-600 uppercase tracking-wide mb-3">
                       Before
                     </div>
                     <div className="space-y-3">
                       <div>
-                        <div className="text-2xl font-bold text-destructive mb-1">
+                        <div className="text-2xl font-bold text-red-600 mb-1">
                           {study.before.revenue}
                         </div>
-                        <div className="text-xs text-white/80">Annual Revenue</div>
+                        <div className="text-xs text-gray-600 font-medium">Annual Revenue</div>
                       </div>
                       <div>
-                        <div className="text-lg font-semibold text-white mb-1">
+                        <div className="text-lg font-semibold text-gray-900 mb-1">
                           {study.before.employees} Employees
                         </div>
                       </div>
                       <ul className="space-y-1">
                         {study.before.challenges.map((challenge, i) => (
-                          <li key={i} className="text-sm text-white/90 flex items-start gap-2">
-                            <span className="text-destructive mt-1">•</span>
+                          <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+                            <span className="text-red-600 mt-1 font-bold">•</span>
                             <span>{challenge}</span>
                           </li>
                         ))}
@@ -157,27 +157,27 @@ export function BeforeAfter() {
 
                   {/* After */}
                   <div>
-                    <div className="text-xs font-semibold text-primary uppercase tracking-wide mb-3 flex items-center gap-2">
+                    <div className="text-xs font-semibold text-gold uppercase tracking-wide mb-3 flex items-center gap-2">
                       After
                       <ArrowRight className="w-3 h-3" />
                     </div>
                     <div className="space-y-3">
                       <div>
-                        <div className="text-2xl font-bold text-primary mb-1">
+                        <div className="text-2xl font-bold text-gold mb-1">
                           {study.after.revenue}
                         </div>
-                        <div className="text-xs text-white/80">Annual Revenue</div>
+                        <div className="text-xs text-gray-600 font-medium">Annual Revenue</div>
                       </div>
                       <div>
-                        <div className="text-lg font-semibold text-white mb-1">
+                        <div className="text-lg font-semibold text-gray-900 mb-1">
                           {study.after.employees} Employees
                         </div>
                       </div>
                       <ul className="space-y-1">
                         {study.after.results.map((result, i) => (
-                          <li key={i} className="text-sm text-primary flex items-start gap-2">
-                            <span className="text-primary mt-1">✓</span>
-                            <span className="font-medium">{result}</span>
+                          <li key={i} className="text-sm text-gray-900 flex items-start gap-2 font-medium">
+                            <span className="text-gold mt-1 font-bold">✓</span>
+                            <span>{result}</span>
                           </li>
                         ))}
                       </ul>
@@ -186,11 +186,11 @@ export function BeforeAfter() {
                 </div>
 
                 {/* Growth Indicator */}
-                <div className="pt-6 border-t border-white/10">
+                <div className="pt-6 border-t border-gold/30">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-sm text-white/90">Growth</div>
-                      <div className="text-2xl font-bold text-primary">
+                      <div className="text-sm text-gray-600 font-medium">Growth</div>
+                      <div className="text-2xl font-bold text-gold">
                         {Math.round(
                           ((parseFloat(study.after.revenue.replace(/[^0-9.]/g, "")) -
                             parseFloat(study.before.revenue.replace(/[^0-9.]/g, ""))) /
@@ -200,7 +200,7 @@ export function BeforeAfter() {
                         %
                       </div>
                     </div>
-                    <TrendingUp className="w-8 h-8 text-primary" />
+                    <TrendingUp className="w-8 h-8 text-gold" />
                   </div>
                 </div>
               </Card>

@@ -123,15 +123,15 @@ export function ResourcesSection() {
   return (
     <section
       id="resources-section"
-      className="relative py-24 bg-background overflow-hidden"
+      className="relative py-24 bg-gradient-to-br from-yellow-pale/30 via-white to-yellow-light/20 overflow-hidden"
     >
-      {/* Background Gradient - Same as About section */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,64,175,0.15),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(124,58,237,0.15),transparent_50%)]" />
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-white" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,155,0,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,225,0,0.1),transparent_50%)]" />
       
-      {/* Gold accent bar */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent z-10" />
+      {/* Accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent z-10" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Heading */}
         <motion.div
@@ -140,10 +140,10 @@ export function ResourcesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-white">
+          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
             Free Resources & Tools
           </h2>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Access our library of free resources, templates, and guides to accelerate
             your business growth.
           </p>
@@ -162,8 +162,8 @@ export function ResourcesSection() {
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 selectedCategory === category
-                  ? "bg-primary text-white"
-                  : "bg-background/80 border border-primary/30 text-white/90 hover:border-gold/50"
+                  ? "bg-gold text-white font-semibold"
+                  : "bg-white border-2 border-gold/30 text-gray-900 hover:border-gold font-medium"
               }`}
             >
               {category}
@@ -180,22 +180,22 @@ export function ResourcesSection() {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.05 }}
             >
-              <Card className="h-full p-6 bg-background/90 backdrop-blur-xl border-primary/30 hover:border-gold/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group shadow-lg">
+              <Card className="h-full p-6 bg-white border-2 border-gold/30 hover:border-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group shadow-lg">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 rounded-lg bg-primary/10 text-primary flex-shrink-0">
+                  <div className="p-3 rounded-lg bg-gold/20 text-gold flex-shrink-0 border-2 border-gold/30">
                     {getIcon(resource.type)}
                   </div>
                   <div className="flex-1">
-                    <div className="text-xs font-semibold text-primary mb-1">
+                    <div className="text-xs font-semibold text-gold mb-1">
                       {resource.type} • {resource.category}
                     </div>
-                    <h3 className="font-heading text-xl font-bold mb-2 text-white group-hover:text-primary transition-colors">
+                    <h3 className="font-heading text-xl font-bold mb-2 text-gray-900 group-hover:text-gold transition-colors">
                       {resource.title}
                     </h3>
                   </div>
                 </div>
 
-                <p className="text-white/90 mb-6 text-sm leading-relaxed">
+                <p className="text-gray-700 mb-6 text-sm leading-relaxed">
                   {resource.description}
                 </p>
 
@@ -227,11 +227,11 @@ export function ResourcesSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center mt-12"
         >
-          <Card className="p-8 bg-background/90 backdrop-blur-xl border-primary/30 shadow-xl inline-block">
-            <h3 className="font-heading text-2xl font-bold mb-2 text-white">
+          <Card className="p-8 bg-white border-2 border-gold/30 shadow-xl inline-block">
+            <h3 className="font-heading text-2xl font-bold mb-2 text-gray-900">
               Want More Resources?
             </h3>
-            <p className="text-white/90 mb-6">
+            <p className="text-gray-700 mb-6">
               Join our newsletter to get exclusive resources delivered to your inbox.
             </p>
             <Button size="lg">

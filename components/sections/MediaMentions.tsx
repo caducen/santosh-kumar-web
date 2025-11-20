@@ -60,15 +60,15 @@ export function MediaMentions() {
   return (
     <section
       id="media-mentions"
-      className="relative py-24 bg-background overflow-hidden"
+      className="relative py-24 bg-gradient-to-br from-yellow-pale/30 via-white to-yellow-light/20 overflow-hidden"
     >
-      {/* Background Gradient - Same as About section */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,64,175,0.15),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(124,58,237,0.15),transparent_50%)]" />
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-white" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,155,0,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,225,0,0.1),transparent_50%)]" />
       
-      {/* Gold accent bar */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent z-10" />
+      {/* Accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent z-10" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Heading */}
         <motion.div
@@ -77,14 +77,14 @@ export function MediaMentions() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
-            <Award className="w-5 h-5 text-primary" />
-            <span className="text-sm font-semibold text-primary">As Featured In</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/20 border-2 border-gold rounded-full mb-4">
+            <Award className="w-5 h-5 text-gold" />
+            <span className="text-sm font-semibold text-gold">As Featured In</span>
           </div>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-white">
+          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
             Trusted by Leading Media
           </h2>
-          <p className="text-lg text-white/90 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Recognized expertise featured across top business publications
           </p>
         </motion.div>
@@ -98,16 +98,16 @@ export function MediaMentions() {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="p-8 text-center bg-background/90 backdrop-blur-xl border-primary/30 hover:border-gold/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group cursor-pointer shadow-lg">
+              <Card className="p-8 text-center bg-white border-2 border-gold/30 hover:border-gold transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group cursor-pointer shadow-lg">
                 <div className="mb-4">
-                  <div className="text-3xl font-heading font-bold text-primary mb-2">
+                  <div className="text-3xl font-heading font-bold text-gold mb-2">
                     {media.logo}
                   </div>
-                  <h3 className="font-semibold text-white mb-2">{media.name}</h3>
-                  <p className="text-sm text-white/90">{media.description}</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">{media.name}</h3>
+                  <p className="text-sm text-gray-700">{media.description}</p>
                 </div>
-                <div className="flex items-center justify-center gap-2 text-gold opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="text-sm font-medium">View</span>
+                <div className="flex items-center justify-center gap-2 text-gold opacity-0 group-hover:opacity-100 transition-opacity font-medium">
+                  <span className="text-sm">View</span>
                   <ExternalLink className="w-4 h-4" />
                 </div>
               </Card>
