@@ -174,7 +174,7 @@ export function HeroSection() {
       </div>
 
       {/* Content Container */}
-      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 pt-[calc(0.75rem-0.75cm)] pb-[calc(1.5rem-1.13cm)] lg:pt-[calc(1rem-0.75cm)] lg:pb-[calc(2rem-1.13cm)]">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column */}
           <motion.div

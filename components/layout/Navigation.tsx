@@ -151,7 +151,7 @@ export function Navigation() {
               aria-label="Santosh Kumar - Home"
             >
               <motion.div
-                className="relative h-16 w-16 flex items-center justify-center"
+                className="relative h-32 w-32 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -159,8 +159,8 @@ export function Navigation() {
                 <Image
                   src="/images/logo.png"
                   alt="Santosh Kumar Logo"
-                  width={64}
-                  height={64}
+                  width={128}
+                  height={128}
                   className="object-contain h-full w-full"
                   priority
                   onError={(e) => {
