@@ -174,7 +174,7 @@ export function SocialProofSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4">
+          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-white">
             Trusted by Forward-Thinking Entrepreneurs
           </h2>
         </motion.div>
@@ -283,7 +283,7 @@ export function SocialProofSection() {
                 {/* Navigation Arrows */}
                 <button
                   onClick={prevTestimonial}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 p-2 rounded-full bg-background/90 backdrop-blur-sm border border-primary/30 hover:bg-background hover:border-gold/50 transition-all hidden lg:flex items-center justify-center"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 p-2 rounded-full bg-background backdrop-blur-sm border-2 border-primary/50 hover:bg-background hover:border-gold/60 transition-all hidden lg:flex items-center justify-center shadow-lg"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft className="w-5 h-5 text-white" />
