@@ -52,18 +52,20 @@ interface AnimatedStatCardProps {
 }
 
 function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardProps) {
-  // Always start with the actual value to ensure it's visible
+  // Always start with the actual value to ensure it's visible immediately
   const [displayValue, setDisplayValue] = useState(value)
   const [hasAnimated, setHasAnimated] = useState(false)
 
+  // Ensure value is always displayed, even before animation
+  useEffect(() => {
+    if (displayValue !== value && !hasAnimated) {
+      setDisplayValue(value)
+    }
+  }, [value, displayValue, hasAnimated])
+
   useEffect(() => {
     // Always show the value first, then animate if needed
-    if (!isVisible) {
-      return
-    }
-
-    // If already animated, keep showing the value
-    if (hasAnimated) {
+    if (!isVisible || hasAnimated) {
       return
     }
 
