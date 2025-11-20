@@ -181,6 +181,7 @@ export function AboutSection() {
         >
           {achievements.map((achievement, index) => {
             const Icon = achievement.icon
+            const [isHovered, setIsHovered] = useState(false)
             return (
               <motion.div
                 key={achievement.label}
@@ -188,8 +189,29 @@ export function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                onHoverStart={() => setIsHovered(true)}
+                onHoverEnd={() => setIsHovered(false)}
+                className="h-full"
               >
-                <Card className="p-6 h-full bg-white border-2 border-gold/30 hover:border-gold transition-all hover:shadow-lg shadow-lg">
+                <motion.div
+                  className="relative h-full p-[2px] rounded-lg"
+                  animate={
+                    isHovered
+                      ? {
+                          y: -8,
+                        }
+                      : {
+                          y: 0,
+                        }
+                  }
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  style={{
+                    background: isHovered
+                      ? "linear-gradient(135deg, rgba(255, 155, 0, 0.2), rgba(255, 225, 0, 0.2), rgba(255, 201, 0, 0.2))"
+                      : "transparent",
+                  }}
+                >
+                  <Card className="relative p-6 h-full bg-white border-2 border-gold/30 transition-all overflow-hidden rounded-lg shadow-lg hover:border-gold hover:shadow-2xl hover:shadow-gold/30">
                   <div className="flex items-center gap-4 mb-3">
                     <div className="p-3 rounded-xl bg-gold/20 border-2 border-gold/40">
                       <Icon className="w-6 h-6 text-gold" />
@@ -204,7 +226,27 @@ export function AboutSection() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-700">{achievement.description}</p>
+                    {/* Hover background glow */}
+                    <motion.div
+                      className="absolute inset-0 rounded-lg pointer-events-none opacity-0"
+                      animate={
+                        isHovered
+                          ? {
+                              opacity: 1,
+                            }
+                          : {
+                              opacity: 0,
+                            }
+                      }
+                      transition={{ duration: 0.3 }}
+                      style={{
+                        background:
+                          "radial-gradient(circle at center, rgba(255, 155, 0, 0.1), transparent 70%)",
+                        zIndex: -1,
+                      }}
+                    />
                 </Card>
+                </motion.div>
               </motion.div>
             )
           })}
@@ -220,6 +262,7 @@ export function AboutSection() {
         >
           {values.map((value, index) => {
             const Icon = value.icon
+            const [isHovered, setIsHovered] = useState(false)
             return (
               <motion.div
                 key={value.title}
@@ -227,8 +270,29 @@ export function AboutSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+                onHoverStart={() => setIsHovered(true)}
+                onHoverEnd={() => setIsHovered(false)}
+                className="h-full"
               >
-                <Card className="p-8 bg-white border-2 border-gold/30 hover:border-gold transition-all shadow-lg">
+                <motion.div
+                  className="relative h-full p-[2px] rounded-lg"
+                  animate={
+                    isHovered
+                      ? {
+                          y: -8,
+                        }
+                      : {
+                          y: 0,
+                        }
+                  }
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  style={{
+                    background: isHovered
+                      ? "linear-gradient(135deg, rgba(255, 155, 0, 0.2), rgba(255, 225, 0, 0.2), rgba(255, 201, 0, 0.2))"
+                      : "transparent",
+                  }}
+                >
+                  <Card className="relative p-8 bg-white border-2 border-gold/30 transition-all overflow-hidden rounded-lg shadow-lg hover:border-gold hover:shadow-2xl hover:shadow-gold/30">
                   <div className="flex items-start gap-4">
                     <div className="p-3 rounded-xl bg-gold/20 border-2 border-gold/40 flex-shrink-0">
                       <Icon className="w-6 h-6 text-gold" />
@@ -240,7 +304,27 @@ export function AboutSection() {
                       <p className="text-gray-700 leading-relaxed">{value.description}</p>
                     </div>
                   </div>
+                    {/* Hover background glow */}
+                    <motion.div
+                      className="absolute inset-0 rounded-lg pointer-events-none opacity-0"
+                      animate={
+                        isHovered
+                          ? {
+                              opacity: 1,
+                            }
+                          : {
+                              opacity: 0,
+                            }
+                      }
+                      transition={{ duration: 0.3 }}
+                      style={{
+                        background:
+                          "radial-gradient(circle at center, rgba(255, 155, 0, 0.1), transparent 70%)",
+                        zIndex: -1,
+                      }}
+                    />
                 </Card>
+                </motion.div>
               </motion.div>
             )
           })}
