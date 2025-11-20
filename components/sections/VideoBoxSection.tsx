@@ -298,9 +298,10 @@ export function VideoBoxSection() {
   }, [])
 
   // YouTube video about business strategy and scaling businesses
-  // This is a popular video about business growth strategies
-  const youtubeVideoId = "f6yA3t0n0NY" // "How to Build a Business That Works" by Alex Hormozi
+  // Replace with your actual YouTube video ID
+  const youtubeVideoId = "f6yA3t0n0NY" // Example: Extract ID from YouTube URL (e.g., https://www.youtube.com/watch?v=VIDEO_ID)
   const videoSrc = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&rel=0&modestbranding=1`
+  const thumbnailUrl = `https://img.youtube.com/vi/${youtubeVideoId}/maxresdefault.jpg`
   const isYouTube = true
   
   // Alternative: Use a local video file
@@ -328,13 +329,29 @@ export function VideoBoxSection() {
               onClick={() => setIsModalOpen(true)}
             >
               {/* Thumbnail */}
-              <div className="relative aspect-video bg-gradient-to-br from-primary via-secondary to-accent">
-                <div className="absolute inset-0 bg-black/20" />
+              <div className="relative aspect-video bg-gradient-to-br from-primary via-secondary to-accent overflow-hidden">
+                {isYouTube && thumbnailUrl ? (
+                  <>
+                    <img
+                      src={thumbnailUrl}
+                      alt="Video thumbnail"
+                      className="absolute inset-0 w-full h-full object-cover"
+                      onError={(e) => {
+                        // Fallback to gradient if thumbnail fails to load
+                        const target = e.target as HTMLImageElement
+                        target.style.display = "none"
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/30" />
+                  </>
+                ) : (
+                  <div className="absolute inset-0 bg-black/20" />
+                )}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:bg-white transition-colors"
+                    className="w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:bg-white transition-colors z-10"
                   >
                     <Play className="w-10 h-10 text-primary ml-1" fill="currentColor" />
                   </motion.div>
