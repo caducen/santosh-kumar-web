@@ -310,7 +310,7 @@ export function VideoBoxSection() {
 
   return (
     <section
-      id="about"
+      id="video-box-section"
       className="relative py-12 lg:py-16 bg-gradient-to-b from-background to-background/50"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
