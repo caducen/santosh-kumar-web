@@ -447,12 +447,24 @@ export function VideoBoxSection() {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <Button
-                size="lg"
-                className="w-full text-base px-8 py-6 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full"
               >
-                Start Your Growth Journey
-              </Button>
+                <Button
+                  size="lg"
+                  className="w-full text-base px-8 py-6 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
+                  onClick={() => {
+                    const contactSection = document.getElementById("contact")
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: "smooth" })
+                    }
+                  }}
+                >
+                  Start Your Growth Journey
+                </Button>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
