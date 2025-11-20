@@ -84,15 +84,15 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
         style={{
           background: isHovered
-            ? "linear-gradient(135deg, rgba(30, 64, 175, 0.6), rgba(124, 58, 237, 0.6), rgba(212, 168, 83, 0.5))"
+            ? "linear-gradient(135deg, rgba(255, 155, 0, 0.2), rgba(255, 225, 0, 0.2), rgba(255, 201, 0, 0.2))"
             : "transparent",
         }}
       >
         <Card
-          className={`relative h-full p-8 bg-background/90 backdrop-blur-xl border transition-all duration-300 overflow-hidden rounded-lg ${
+          className={`relative h-full p-8 bg-white border-2 transition-all duration-300 overflow-hidden rounded-lg ${
             isHovered
-              ? "border-gold/50 shadow-2xl shadow-gold/30"
-              : "border-primary/30 shadow-lg"
+              ? "border-gold shadow-2xl shadow-gold/30"
+              : "border-gold/30 shadow-lg"
           }`}
         >
 
@@ -100,33 +100,33 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           <div className="relative z-10">
             {/* Icon */}
             <motion.div
-              className={`mb-6 inline-flex p-4 rounded-xl bg-gradient-to-br text-primary transition-all ${
+              className={`mb-6 inline-flex p-4 rounded-xl bg-gradient-to-br transition-all ${
                 isHovered 
-                  ? "from-gold/30 to-gold/20 border-2 border-gold/40" 
-                  : "from-primary/20 to-secondary/20 border-2 border-primary/20"
+                  ? "from-gold/30 to-yellow-light/30 border-2 border-gold" 
+                  : "from-gold/20 to-yellow-light/20 border-2 border-gold/30"
               }`}
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              {service.icon}
+              <div className="text-gold">
+                {service.icon}
+              </div>
             </motion.div>
 
             {/* Title */}
-            <h3 className="font-heading text-2xl font-bold mb-3 text-white">
+            <h3 className="font-heading text-2xl font-bold mb-3 text-gray-900">
               {service.title}
             </h3>
 
             {/* Description */}
-            <p className="text-gray-200 mb-6 leading-relaxed">
+            <p className="text-gray-700 mb-6 leading-relaxed">
               {service.description}
             </p>
 
             {/* Learn More Link */}
             <Link
               href={service.href}
-              className={`inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all group/link ${
-                isHovered ? "text-gold" : "text-primary"
-              }`}
+              className="inline-flex items-center gap-2 font-semibold text-gold hover:text-gold hover:gap-3 transition-all group/link"
             >
               <span>Learn More</span>
               <motion.span
@@ -153,7 +153,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
             transition={{ duration: 0.3 }}
             style={{
               background:
-                "radial-gradient(circle at center, rgba(212, 168, 83, 0.15), transparent 70%)",
+                "radial-gradient(circle at center, rgba(255, 155, 0, 0.1), transparent 70%)",
               zIndex: -1,
             }}
           />
@@ -191,15 +191,15 @@ export function ServicesPreview() {
   return (
     <section
       id="services-preview"
-      className="relative py-24 bg-background overflow-hidden"
+      className="relative py-24 bg-gradient-to-br from-yellow-pale/30 via-white to-yellow-light/20 overflow-hidden"
     >
-      {/* Background Gradient - Same as About section */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,64,175,0.15),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(124,58,237,0.15),transparent_50%)]" />
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-white" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,155,0,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,225,0,0.1),transparent_50%)]" />
       
-      {/* Gold accent bar */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent z-10" />
+      {/* Accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent z-10" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -208,10 +208,10 @@ export function ServicesPreview() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-white">
+          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
             Our Services
           </h2>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Comprehensive solutions to help you scale your business and achieve
             sustainable growth
           </p>
