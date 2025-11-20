@@ -82,8 +82,10 @@ export function BeforeAfter() {
   return (
     <section
       id="before-after"
-      className="relative py-24 bg-gradient-to-b from-background/50 to-background"
+      className="relative py-24 bg-background"
     >
+      {/* Gold accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.div
@@ -99,7 +101,7 @@ export function BeforeAfter() {
           <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-white">
             Real Results, Real Impact
           </h2>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
             See how businesses transform with strategic execution
           </p>
         </motion.div>
@@ -113,16 +115,16 @@ export function BeforeAfter() {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <Card className="p-8 bg-background/80 backdrop-blur-xl border-white/20 hover:border-primary/30 transition-all duration-300 hover:shadow-xl shadow-lg">
+              <Card className="p-8 bg-background/90 backdrop-blur-xl border-primary/30 hover:border-gold/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 shadow-lg">
                 <div className="mb-6">
                   <h3 className="font-heading text-2xl font-bold mb-2 text-white">{study.company}</h3>
-                  <p className="text-sm text-gray-200">{study.industry} • {study.timeline}</p>
+                  <p className="text-sm text-white/90">{study.industry} • {study.timeline}</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-6 mb-6">
                   {/* Before */}
                   <div>
-                    <div className="text-xs font-semibold text-gray-300 uppercase tracking-wide mb-3">
+                    <div className="text-xs font-semibold text-white/80 uppercase tracking-wide mb-3">
                       Before
                     </div>
                     <div className="space-y-3">
@@ -130,7 +132,7 @@ export function BeforeAfter() {
                         <div className="text-2xl font-bold text-destructive mb-1">
                           {study.before.revenue}
                         </div>
-                        <div className="text-xs text-gray-300">Annual Revenue</div>
+                        <div className="text-xs text-white/80">Annual Revenue</div>
                       </div>
                       <div>
                         <div className="text-lg font-semibold text-white mb-1">
@@ -139,7 +141,7 @@ export function BeforeAfter() {
                       </div>
                       <ul className="space-y-1">
                         {study.before.challenges.map((challenge, i) => (
-                          <li key={i} className="text-sm text-gray-200 flex items-start gap-2">
+                          <li key={i} className="text-sm text-white/90 flex items-start gap-2">
                             <span className="text-destructive mt-1">•</span>
                             <span>{challenge}</span>
                           </li>
@@ -159,7 +161,7 @@ export function BeforeAfter() {
                         <div className="text-2xl font-bold text-primary mb-1">
                           {study.after.revenue}
                         </div>
-                        <div className="text-xs text-gray-300">Annual Revenue</div>
+                        <div className="text-xs text-white/80">Annual Revenue</div>
                       </div>
                       <div>
                         <div className="text-lg font-semibold text-white mb-1">
@@ -182,7 +184,7 @@ export function BeforeAfter() {
                 <div className="pt-6 border-t border-white/10">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-sm text-gray-200">Growth</div>
+                      <div className="text-sm text-white/90">Growth</div>
                       <div className="text-2xl font-bold text-primary">
                         {Math.round(
                           ((parseFloat(study.after.revenue.replace(/[^0-9.]/g, "")) -

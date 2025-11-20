@@ -84,15 +84,15 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
         style={{
           background: isHovered
-            ? "linear-gradient(135deg, rgba(30, 64, 175, 0.5), rgba(124, 58, 237, 0.5), rgba(245, 158, 11, 0.5))"
+            ? "linear-gradient(135deg, rgba(30, 64, 175, 0.6), rgba(124, 58, 237, 0.6), rgba(212, 168, 83, 0.5))"
             : "transparent",
         }}
       >
         <Card
-          className={`relative h-full p-8 bg-background/80 backdrop-blur-xl border transition-all duration-300 overflow-hidden rounded-lg ${
+          className={`relative h-full p-8 bg-background/90 backdrop-blur-xl border transition-all duration-300 overflow-hidden rounded-lg ${
             isHovered
-              ? "border-transparent shadow-2xl shadow-primary/20"
-              : "border-white/20 shadow-lg"
+              ? "border-gold/50 shadow-2xl shadow-gold/30"
+              : "border-primary/30 shadow-lg"
           }`}
         >
 
@@ -100,7 +100,11 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           <div className="relative z-10">
             {/* Icon */}
             <motion.div
-              className="mb-6 inline-flex p-4 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary"
+              className={`mb-6 inline-flex p-4 rounded-xl bg-gradient-to-br text-primary transition-all ${
+                isHovered 
+                  ? "from-gold/30 to-gold/20 border-2 border-gold/40" 
+                  : "from-primary/20 to-secondary/20 border-2 border-primary/20"
+              }`}
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -120,7 +124,9 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
             {/* Learn More Link */}
             <Link
               href={service.href}
-              className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all group/link"
+              className={`inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all group/link ${
+                isHovered ? "text-gold" : "text-primary"
+              }`}
             >
               <span>Learn More</span>
               <motion.span
@@ -147,7 +153,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
             transition={{ duration: 0.3 }}
             style={{
               background:
-                "radial-gradient(circle at center, rgba(30, 64, 175, 0.1), transparent 70%)",
+                "radial-gradient(circle at center, rgba(212, 168, 83, 0.15), transparent 70%)",
               zIndex: -1,
             }}
           />
@@ -185,8 +191,10 @@ export function ServicesPreview() {
   return (
     <section
       id="services-preview"
-      className="relative py-24 bg-gradient-to-b from-background to-background/50"
+      className="relative py-24 bg-background"
     >
+      {/* Gold accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div

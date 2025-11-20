@@ -41,10 +41,10 @@ export function CTASection() {
           className="absolute inset-0"
           animate={{
             background: [
-              "radial-gradient(circle at 20% 50%, rgba(30, 64, 175, 0.4) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 50%, rgba(124, 58, 237, 0.4) 0%, transparent 50%)",
-              "radial-gradient(circle at 50% 80%, rgba(245, 158, 11, 0.4) 0%, transparent 50%)",
-              "radial-gradient(circle at 20% 50%, rgba(30, 64, 175, 0.4) 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 50%, rgba(30, 64, 175, 0.5) 0%, transparent 50%)",
+              "radial-gradient(circle at 80% 50%, rgba(124, 58, 237, 0.5) 0%, transparent 50%)",
+              "radial-gradient(circle at 50% 80%, rgba(212, 168, 83, 0.4) 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 50%, rgba(30, 64, 175, 0.5) 0%, transparent 50%)",
             ],
           }}
           transition={{
@@ -62,8 +62,11 @@ export function CTASection() {
           }}
         />
         
+        {/* Gold accent gradient bar at top */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-60" />
+        
         {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
@@ -143,6 +146,24 @@ export function CTASection() {
             ))}
           </motion.div>
 
+          {/* Forbes Council Badge - Prominent */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-8"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-gold/20 via-gold/30 to-gold/20 backdrop-blur-sm rounded-full border-2 border-gold/50 shadow-lg shadow-gold/20"
+            >
+              <Award className="w-6 h-6 text-gold" />
+              <span className="text-white font-bold text-base sm:text-lg">
+                Forbes Council Member
+              </span>
+            </motion.div>
+          </motion.div>
+
           {/* Social Proof Badges */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -150,16 +171,6 @@ export function CTASection() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-wrap items-center justify-center gap-6 sm:gap-8"
           >
-            {/* Forbes Badge */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
-            >
-              <Award className="w-5 h-5 text-white" />
-              <span className="text-white font-semibold text-sm sm:text-base">
-                Forbes Council
-              </span>
-            </motion.div>
 
             {/* Rating Badge */}
             <motion.div

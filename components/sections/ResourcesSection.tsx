@@ -123,8 +123,10 @@ export function ResourcesSection() {
   return (
     <section
       id="resources-section"
-      className="relative py-24 bg-gradient-to-b from-background/50 to-background"
+      className="relative py-24 bg-background"
     >
+      {/* Gold accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.div
@@ -156,7 +158,7 @@ export function ResourcesSection() {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 selectedCategory === category
                   ? "bg-primary text-white"
-                  : "bg-background/60 border border-white/20 text-gray-200 hover:border-primary/50"
+                  : "bg-background/80 border border-primary/30 text-white/90 hover:border-gold/50"
               }`}
             >
               {category}
@@ -173,7 +175,7 @@ export function ResourcesSection() {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.05 }}
             >
-              <Card className="h-full p-6 bg-background/80 backdrop-blur-xl border-white/20 hover:border-primary/50 transition-all duration-300 hover:shadow-xl group shadow-lg">
+              <Card className="h-full p-6 bg-background/90 backdrop-blur-xl border-primary/30 hover:border-gold/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group shadow-lg">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="p-3 rounded-lg bg-primary/10 text-primary flex-shrink-0">
                     {getIcon(resource.type)}
@@ -188,7 +190,7 @@ export function ResourcesSection() {
                   </div>
                 </div>
 
-                <p className="text-gray-200 mb-6 text-sm leading-relaxed">
+                <p className="text-white/90 mb-6 text-sm leading-relaxed">
                   {resource.description}
                 </p>
 
@@ -220,11 +222,11 @@ export function ResourcesSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center mt-12"
         >
-          <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/20 inline-block">
+          <Card className="p-8 bg-background/90 backdrop-blur-xl border-primary/30 shadow-xl inline-block">
             <h3 className="font-heading text-2xl font-bold mb-2 text-white">
               Want More Resources?
             </h3>
-            <p className="text-gray-200 mb-6">
+            <p className="text-white/90 mb-6">
               Join our newsletter to get exclusive resources delivered to your inbox.
             </p>
             <Button size="lg">

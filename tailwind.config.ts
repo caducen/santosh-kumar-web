@@ -32,6 +32,11 @@ const config: Config = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        gold: {
+          DEFAULT: "#D4A853",
+          light: "#E8C97A",
+          dark: "#B8943A",
+        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",

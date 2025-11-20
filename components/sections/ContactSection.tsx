@@ -57,7 +57,9 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="relative py-24 bg-gradient-to-b from-background/50 to-background">
+    <section id="contact" className="relative py-24 bg-background">
+      {/* Gold accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Column - Contact Info */}
@@ -72,7 +74,7 @@ export function ContactSection() {
               <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-white">
                 Let's Start Your Growth Journey
               </h2>
-              <p className="text-lg text-gray-200 mb-8">
+              <p className="text-lg text-white/90 mb-8">
                 Ready to double your income? Book a free strategy call and discover
                 how we can transform your business together.
               </p>
@@ -87,7 +89,7 @@ export function ContactSection() {
                   <h3 className="font-semibold mb-1 text-white">Email</h3>
                   <a
                     href="mailto:contact@santoshkumar.com"
-                    className="text-gray-200 hover:text-primary transition-colors"
+                    className="text-white/90 hover:text-gold transition-colors"
                   >
                     contact@santoshkumar.com
                   </a>
@@ -102,7 +104,7 @@ export function ContactSection() {
                   <h3 className="font-semibold mb-1 text-white">Phone</h3>
                   <a
                     href="tel:+1234567890"
-                    className="text-gray-200 hover:text-primary transition-colors"
+                    className="text-white/90 hover:text-gold transition-colors"
                   >
                     +1 (234) 567-890
                   </a>
@@ -115,7 +117,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-white">Location</h3>
-                  <p className="text-gray-200">
+                  <p className="text-white/90">
                     Available Worldwide<br />
                     Remote Consultations
                   </p>
@@ -123,13 +125,13 @@ export function ContactSection() {
               </div>
             </div>
 
-            <Card className="p-6 bg-background/80 backdrop-blur-sm border-primary/30 shadow-lg">
+            <Card className="p-6 bg-background/90 backdrop-blur-sm border-primary/30 hover:border-gold/50 transition-all shadow-lg">
               <h3 className="font-semibold mb-2 text-white">Free Strategy Call</h3>
-              <p className="text-sm text-gray-200 mb-4">
+              <p className="text-sm text-white/90 mb-4">
                 Book a 45-minute consultation and leave with insights worth 6-figures.
                 No obligation, guaranteed value.
               </p>
-              <Button className="w-full">Schedule Your Call</Button>
+              <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:from-gold hover:to-gold/80">Schedule Your Call</Button>
             </Card>
           </motion.div>
 
@@ -140,7 +142,7 @@ export function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Card className="p-8 bg-background/80 backdrop-blur-xl border-white/20 shadow-xl">
+            <Card className="p-8 bg-background/90 backdrop-blur-xl border-primary/30 hover:border-gold/30 transition-all shadow-xl">
               <h3 className="font-heading text-2xl font-bold mb-6 text-white">Send a Message</h3>
               
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">

@@ -95,7 +95,7 @@ function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardPr
       animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
     >
-      <Card className="p-6 text-center bg-background/80 backdrop-blur-xl border-white/20 hover:border-primary/30 transition-all duration-300 hover:shadow-lg shadow-lg">
+      <Card className="p-6 text-center bg-background/90 backdrop-blur-xl border-primary/30 hover:border-gold/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 shadow-lg">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
@@ -104,7 +104,7 @@ function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardPr
         >
           {displayValue}
         </motion.div>
-        <p className="text-sm text-gray-200">{label}</p>
+        <p className="text-sm text-white/90">{label}</p>
       </Card>
     </motion.div>
   )
@@ -192,7 +192,7 @@ export function SocialProofSection() {
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
                 className="flex items-center justify-center w-24 h-16 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 p-4 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="text-gray-200 text-xs font-semibold">
+                <div className="text-white/90 text-xs font-semibold">
                   Logo {index + 1}
                 </div>
               </motion.div>
@@ -208,7 +208,7 @@ export function SocialProofSection() {
           className="mb-20"
         >
           <div className="relative max-w-4xl mx-auto">
-            <Card className="p-8 md:p-12 bg-background/80 backdrop-blur-xl border-white/20 shadow-xl">
+            <Card className="p-8 md:p-12 bg-background/90 backdrop-blur-xl border-primary/30 shadow-xl">
               <div className="relative">
                 {/* Quote Icon */}
                 <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
@@ -245,7 +245,7 @@ export function SocialProofSection() {
                           <p className="font-semibold text-white">
                             {testimonials[currentTestimonial].author}
                           </p>
-                          <p className="text-sm text-gray-200">
+                          <p className="text-sm text-white/90">
                             {testimonials[currentTestimonial].role && (
                               <span>{testimonials[currentTestimonial].role}, </span>
                             )}
@@ -276,14 +276,14 @@ export function SocialProofSection() {
                 {/* Navigation Arrows */}
                 <button
                   onClick={prevTestimonial}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 p-2 rounded-full bg-background/80 backdrop-blur-sm border border-white/20 hover:bg-background hover:border-primary/50 transition-all hidden lg:flex items-center justify-center"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 p-2 rounded-full bg-background/90 backdrop-blur-sm border border-primary/30 hover:bg-background hover:border-gold/50 transition-all hidden lg:flex items-center justify-center"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft className="w-5 h-5 text-white" />
                 </button>
                 <button
                   onClick={nextTestimonial}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 p-2 rounded-full bg-background/80 backdrop-blur-sm border border-white/20 hover:bg-background hover:border-primary/50 transition-all hidden lg:flex items-center justify-center"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 p-2 rounded-full bg-background/90 backdrop-blur-sm border border-primary/30 hover:bg-background hover:border-gold/50 transition-all hidden lg:flex items-center justify-center"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight className="w-5 h-5 text-white" />
