@@ -273,7 +273,7 @@ function StatCard({ icon, number, label, delay = 0 }: StatCardProps) {
 
 export function VideoBoxSection() {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true) // Start visible instead of waiting for intersection
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -288,6 +288,8 @@ export function VideoBoxSection() {
     const element = document.getElementById("video-box-section")
     if (element) {
       observer.observe(element)
+      // Set visible immediately if element exists
+      setIsVisible(true)
     }
 
     return () => {
