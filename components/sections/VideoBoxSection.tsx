@@ -165,16 +165,19 @@ function VideoModal({ isOpen, onClose, videoSrc, isYouTube = false }: VideoModal
 
           {/* Controls */}
           <div className="flex items-center gap-4">
-            <button
+            <motion.button
               onClick={togglePlayPause}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              aria-label={isPlaying ? "Pause" : "Play"}
             >
               {isPlaying ? (
                 <Pause className="w-5 h-5 text-white" />
               ) : (
                 <Play className="w-5 h-5 text-white" />
               )}
-            </button>
+            </motion.button>
 
             <div className="flex items-center gap-2 flex-1">
               <span className="text-white text-sm">
