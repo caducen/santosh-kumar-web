@@ -74,10 +74,10 @@ export function MediaMentions() {
             <Award className="w-5 h-5 text-primary" />
             <span className="text-sm font-semibold text-primary">As Featured In</span>
           </div>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4">
+          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-white">
             Trusted by Leading Media
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Recognized expertise featured across top business publications
           </p>
         </motion.div>
@@ -91,13 +91,13 @@ export function MediaMentions() {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="p-8 text-center bg-background/40 backdrop-blur-xl border-white/20 hover:border-primary/50 transition-all duration-300 hover:shadow-xl group cursor-pointer">
+              <Card className="p-8 text-center bg-background/80 backdrop-blur-xl border-white/20 hover:border-primary/50 transition-all duration-300 hover:shadow-xl group cursor-pointer shadow-lg">
                 <div className="mb-4">
                   <div className="text-3xl font-heading font-bold text-primary mb-2">
                     {media.logo}
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{media.name}</h3>
-                  <p className="text-sm text-muted-foreground">{media.description}</p>
+                  <h3 className="font-semibold text-white mb-2">{media.name}</h3>
+                  <p className="text-sm text-gray-200">{media.description}</p>
                 </div>
                 <div className="flex items-center justify-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                   <span className="text-sm font-medium">View</span>

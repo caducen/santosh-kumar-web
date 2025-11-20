@@ -116,10 +116,10 @@ export function CoursesSection() {
             <BookOpen className="w-5 h-5 text-primary" />
             <span className="text-sm font-semibold text-primary">Online Courses</span>
           </div>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4">
+          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-white">
             Transform Your Business Through Learning
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Join 3000+ entrepreneurs who have transformed their businesses with our
             proven frameworks and strategies.
           </p>
@@ -134,7 +134,7 @@ export function CoursesSection() {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="h-full p-8 bg-background/40 backdrop-blur-xl border-white/20 hover:border-primary/50 transition-all duration-300 hover:shadow-xl flex flex-col">
+              <Card className="h-full p-8 bg-background/80 backdrop-blur-xl border-white/20 hover:border-primary/50 transition-all duration-300 hover:shadow-xl flex flex-col shadow-lg">
                 {/* Level Badge */}
                 <div className="mb-4">
                   <span
@@ -151,13 +151,13 @@ export function CoursesSection() {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-heading text-2xl font-bold mb-3">{course.title}</h3>
+                <h3 className="font-heading text-2xl font-bold mb-3 text-white">{course.title}</h3>
 
                 {/* Description */}
-                <p className="text-muted-foreground mb-6 flex-grow">{course.description}</p>
+                <p className="text-gray-200 mb-6 flex-grow">{course.description}</p>
 
                 {/* Stats */}
-                <div className="flex items-center gap-4 mb-6 text-sm text-muted-foreground">
+                <div className="flex items-center gap-4 mb-6 text-sm text-gray-300">
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
                     <span>{course.duration}</span>
@@ -177,7 +177,7 @@ export function CoursesSection() {
                   {course.features.slice(0, 3).map((feature, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm">
                       <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
+                      <span className="text-gray-200">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -187,7 +187,7 @@ export function CoursesSection() {
                   <div className="flex items-baseline justify-between mb-4">
                     <div>
                       <span className="text-3xl font-bold text-primary">{course.price}</span>
-                      <span className="text-muted-foreground text-sm ml-2">one-time</span>
+                      <span className="text-gray-300 text-sm ml-2">one-time</span>
                     </div>
                   </div>
                   <Button className="w-full" size="lg">
@@ -207,7 +207,7 @@ export function CoursesSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <p className="text-muted-foreground mb-4">
+          <p className="text-gray-200 mb-4">
             Not sure which course is right for you?
           </p>
           <Button variant="outline" size="lg">

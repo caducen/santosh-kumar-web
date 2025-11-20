@@ -89,10 +89,10 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         }}
       >
         <Card
-          className={`relative h-full p-8 bg-background/40 backdrop-blur-xl border transition-all duration-300 overflow-hidden rounded-lg ${
+          className={`relative h-full p-8 bg-background/80 backdrop-blur-xl border transition-all duration-300 overflow-hidden rounded-lg ${
             isHovered
               ? "border-transparent shadow-2xl shadow-primary/20"
-              : "border-white/10 shadow-lg"
+              : "border-white/20 shadow-lg"
           }`}
         >
 
@@ -108,12 +108,12 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
             </motion.div>
 
             {/* Title */}
-            <h3 className="font-heading text-2xl font-bold mb-3 text-foreground">
+            <h3 className="font-heading text-2xl font-bold mb-3 text-white">
               {service.title}
             </h3>
 
             {/* Description */}
-            <p className="text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-gray-200 mb-6 leading-relaxed">
               {service.description}
             </p>
 
@@ -195,10 +195,10 @@ export function ServicesPreview() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4">
+          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-white">
             Our Services
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Comprehensive solutions to help you scale your business and achieve
             sustainable growth
           </p>

@@ -69,10 +69,10 @@ export function ContactSection() {
             className="space-y-8"
           >
             <div>
-              <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4">
+              <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4 text-white">
                 Let's Start Your Growth Journey
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-lg text-gray-200 mb-8">
                 Ready to double your income? Book a free strategy call and discover
                 how we can transform your business together.
               </p>
@@ -84,10 +84,10 @@ export function ContactSection() {
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Email</h3>
+                  <h3 className="font-semibold mb-1 text-white">Email</h3>
                   <a
                     href="mailto:contact@santoshkumar.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-gray-200 hover:text-primary transition-colors"
                   >
                     contact@santoshkumar.com
                   </a>
@@ -99,10 +99,10 @@ export function ContactSection() {
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Phone</h3>
+                  <h3 className="font-semibold mb-1 text-white">Phone</h3>
                   <a
                     href="tel:+1234567890"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-gray-200 hover:text-primary transition-colors"
                   >
                     +1 (234) 567-890
                   </a>
@@ -114,8 +114,8 @@ export function ContactSection() {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Location</h3>
-                  <p className="text-muted-foreground">
+                  <h3 className="font-semibold mb-1 text-white">Location</h3>
+                  <p className="text-gray-200">
                     Available Worldwide<br />
                     Remote Consultations
                   </p>
@@ -123,9 +123,9 @@ export function ContactSection() {
               </div>
             </div>
 
-            <Card className="p-6 bg-primary/5 border-primary/20">
-              <h3 className="font-semibold mb-2">Free Strategy Call</h3>
-              <p className="text-sm text-muted-foreground mb-4">
+            <Card className="p-6 bg-background/80 backdrop-blur-sm border-primary/30 shadow-lg">
+              <h3 className="font-semibold mb-2 text-white">Free Strategy Call</h3>
+              <p className="text-sm text-gray-200 mb-4">
                 Book a 45-minute consultation and leave with insights worth 6-figures.
                 No obligation, guaranteed value.
               </p>
@@ -140,8 +140,8 @@ export function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Card className="p-8 bg-background/40 backdrop-blur-xl border-white/20">
-              <h3 className="font-heading text-2xl font-bold mb-6">Send a Message</h3>
+            <Card className="p-8 bg-background/80 backdrop-blur-xl border-white/20 shadow-xl">
+              <h3 className="font-heading text-2xl font-bold mb-6 text-white">Send a Message</h3>
               
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
