@@ -352,7 +352,7 @@ export function VideoBoxSection() {
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:bg-white transition-colors"
+                    className="w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-xl group-hover:bg-white transition-all group-hover:scale-110"
                   >
                     <Play className="w-10 h-10 text-primary ml-1" fill="currentColor" />
                   </motion.div>

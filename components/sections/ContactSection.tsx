@@ -246,24 +246,30 @@ export function ContactSection() {
                   </motion.div>
                 )}
 
-                <Button
-                  type="submit"
-                  size="lg"
+                <motion.div
+                  whileHover={{ scale: status !== "loading" ? 1.02 : 1 }}
+                  whileTap={{ scale: status !== "loading" ? 0.98 : 1 }}
                   className="w-full"
-                  disabled={status === "loading"}
                 >
-                  {status === "loading" ? (
-                    <>
-                      <span className="animate-spin mr-2">⏳</span>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full"
+                    disabled={status === "loading"}
+                  >
+                    {status === "loading" ? (
+                      <>
+                        <span className="animate-spin mr-2">⏳</span>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
               </form>
             </Card>
           </motion.div>
