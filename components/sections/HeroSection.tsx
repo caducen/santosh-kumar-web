@@ -215,19 +215,41 @@ export function HeroSection() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button
-                size="lg"
-                className="text-base px-8 py-6 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Book Free Strategy Call
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-base px-8 py-6 rounded-full font-semibold border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-all"
+                <Button
+                  size="lg"
+                  className="text-base px-8 py-6 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
+                  onClick={() => {
+                    const contactSection = document.getElementById("contact")
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: "smooth" })
+                    }
+                  }}
+                >
+                  Book Free Strategy Call
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                View Free Resources
-              </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-base px-8 py-6 rounded-full font-semibold border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-all"
+                  onClick={() => {
+                    const resourcesSection = document.getElementById("resources-section")
+                    if (resourcesSection) {
+                      resourcesSection.scrollIntoView({ behavior: "smooth" })
+                    }
+                  }}
+                >
+                  View Free Resources
+                </Button>
+              </motion.div>
             </motion.div>
           </motion.div>
 
