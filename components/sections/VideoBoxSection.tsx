@@ -127,15 +127,27 @@ function VideoModal({ isOpen, onClose, videoSrc, isYouTube = false }: VideoModal
         </button>
 
         {/* Video Player */}
-        <video
-          ref={videoRef}
-          src={videoSrc}
-          className="w-full h-auto"
-          playsInline
-        />
+        {isYouTube ? (
+          <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+            <iframe
+              src={videoSrc}
+              className="absolute top-0 left-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Business Strategy Video"
+            />
+          </div>
+        ) : (
+          <>
+            <video
+              ref={videoRef}
+              src={videoSrc}
+              className="w-full h-auto"
+              playsInline
+            />
 
-        {/* Custom Controls */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4">
+            {/* Custom Controls */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4">
           {/* Progress Bar */}
           <div
             ref={progressRef}
@@ -194,6 +206,8 @@ function VideoModal({ isOpen, onClose, videoSrc, isYouTube = false }: VideoModal
             </div>
           </div>
         </div>
+          </>
+        )}
       </motion.div>
     </motion.div>
       )}
