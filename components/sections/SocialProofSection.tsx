@@ -218,12 +218,12 @@ export function SocialProofSection() {
             <Card className="p-8 md:p-12 bg-white border-2 border-gold/30 shadow-xl">
               <div className="relative">
                 {/* Quote Icon */}
-                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gold/30 border-2 border-gold flex items-center justify-center shadow-lg">
+                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gold/30 border-2 border-gold flex items-center justify-center shadow-lg z-10">
                   <Quote className="w-6 h-6 text-gray-900" />
                 </div>
 
                 {/* Testimonials */}
-                <div className="relative min-h-[200px]">
+                <div className="relative min-h-[200px] pt-4">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentTestimonial}
@@ -233,7 +233,7 @@ export function SocialProofSection() {
                       transition={{ duration: 0.5 }}
                       className="text-center"
                     >
-                      <blockquote className="text-lg md:text-xl text-gray-900 font-medium mb-8 leading-relaxed">
+                      <blockquote className="text-lg md:text-xl text-gray-900 font-medium mb-8 leading-relaxed px-4">
                         "{testimonials[currentTestimonial].quote}"
                       </blockquote>
 
