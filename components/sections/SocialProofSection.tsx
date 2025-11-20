@@ -52,51 +52,52 @@ interface AnimatedStatCardProps {
 }
 
 function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardProps) {
-  const [displayValue, setDisplayValue] = useState("0")
+  const [displayValue, setDisplayValue] = useState(value) // Start with actual value instead of "0"
   const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
-    // Always show the value if visible, even if animation hasn't started
+    // Only animate if visible and not already animated
     if (isVisible && !hasAnimated) {
-      // Start animation immediately
       setHasAnimated(true)
       
       // Extract number and suffix - handle formats like "15+", "3000+", "$50M+"
-      // Try to match patterns like "15+", "200+", "3000+", "$50M+"
       const numericMatch = value.match(/^(\$?)(\d+)([A-Za-z+]*)$/)
       
       if (numericMatch) {
         const prefix = numericMatch[1] || ""
-        const targetNum = parseInt(numericMatch[2])
+        const targetNum = parseInt(numericMatch[2], 10)
         const suffix = numericMatch[3] || ""
+        
+        // Reset to 0 for animation
+        setDisplayValue(prefix + "0" + suffix)
+        
         const duration = 2000
         const steps = 60
         const increment = targetNum / steps
         let current = 0
         let step = 0
         
-        // Start animation
-        const timer = setInterval(() => {
-          step++
-          current += increment
-          if (step >= steps || current >= targetNum) {
-            setDisplayValue(value)
-            clearInterval(timer)
-          } else {
-            setDisplayValue(prefix + Math.floor(current) + suffix)
-          }
-        }, duration / steps)
+        // Start animation after a brief delay
+        const timer = setTimeout(() => {
+          const intervalTimer = setInterval(() => {
+            step++
+            current += increment
+            if (step >= steps || current >= targetNum) {
+              setDisplayValue(value)
+              clearInterval(intervalTimer)
+            } else {
+              setDisplayValue(prefix + Math.floor(current) + suffix)
+            }
+          }, duration / steps)
+          
+          return () => clearInterval(intervalTimer)
+        }, 100)
         
-        return () => clearInterval(timer)
-      } else {
-        // If no match (e.g., "15+"), show the value immediately
-        setDisplayValue(value)
+        return () => clearTimeout(timer)
       }
-    } else if (isVisible && displayValue === "0") {
-      // Fallback: if visible but still showing 0, show the value
-      setDisplayValue(value)
+      // If no match, value is already set correctly
     }
-  }, [isVisible, hasAnimated, value, displayValue])
+  }, [isVisible, hasAnimated, value])
 
   return (
     <motion.div
