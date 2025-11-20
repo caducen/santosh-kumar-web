@@ -60,11 +60,11 @@ const values = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="relative pt-4 pb-24 lg:pt-6 lg:pb-32 overflow-hidden bg-background">
+    <section id="about" className="relative pt-4 pb-24 lg:pt-6 lg:pb-32 overflow-hidden bg-gradient-to-br from-yellow-pale/30 via-white to-yellow-light/20">
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,64,175,0.15),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(124,58,237,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-white" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,155,0,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,225,0,0.1),transparent_50%)]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -75,16 +75,16 @@ export function AboutSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center justify-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-4">
+          <span className="inline-flex items-center justify-center rounded-full border-2 border-gold bg-gold/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-gold mb-4">
             About Santosh Kumar
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-gray-900 mb-6">
             From Startup to{" "}
-            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gold via-yellow to-yellow-light bg-clip-text text-transparent">
               Forbes
             </span>
           </h2>
-          <p className="text-lg sm:text-xl text-primary max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             A proven business strategist dedicated to helping entrepreneurs double their income
             through strategic execution and expert guidance.
           </p>
@@ -114,7 +114,7 @@ export function AboutSection() {
                 <Card className="px-4 py-2 bg-background/90 backdrop-blur-sm border-primary/30 shadow-lg">
                   <div className="flex items-center gap-2">
                     <Award className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-semibold text-white">Forbes Council</span>
+                    <span className="text-sm font-semibold text-gray-900">Forbes Council</span>
                   </div>
                 </Card>
               </div>
@@ -131,10 +131,10 @@ export function AboutSection() {
           >
             {/* Story */}
             <div className="space-y-4">
-              <h3 className="text-2xl sm:text-3xl font-heading font-bold text-white">
+              <h3 className="text-2xl sm:text-3xl font-heading font-bold text-gray-900">
                 The Journey
               </h3>
-              <div className="space-y-4 text-primary leading-relaxed">
+              <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
                   Santosh Kumar's journey began with a simple belief: every entrepreneur has the
                   potential to build a thriving, scalable business. What separates the successful
@@ -157,11 +157,11 @@ export function AboutSection() {
             </div>
 
             {/* Mission */}
-            <Card className="p-6 bg-background/90 backdrop-blur-sm border-primary/30 shadow-lg">
-              <h4 className="text-xl font-heading font-bold text-primary mb-3">
+            <Card className="p-6 bg-white border-2 border-gold/30 shadow-lg">
+              <h4 className="text-xl font-heading font-bold text-gray-900 mb-3">
                 The Mission
               </h4>
-              <p className="text-primary leading-relaxed">
+              <p className="text-gray-700 leading-relaxed">
                 "My mission is to democratize business success. I believe that with the right
                 strategy, framework, and guidance, any entrepreneur can double their income and
                 build a business that not only survives but thrives. Every business owner deserves
@@ -189,21 +189,21 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
               >
-                <Card className="p-6 h-full bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/20 shadow-lg">
+                <Card className="p-6 h-full bg-white border-2 border-gold/30 hover:border-gold transition-all hover:shadow-lg shadow-lg">
                   <div className="flex items-center gap-4 mb-3">
-                    <div className="p-3 rounded-xl bg-primary/20 border border-primary/40">
-                      <Icon className="w-6 h-6 text-primary" />
+                    <div className="p-3 rounded-xl bg-gold/20 border-2 border-gold/40">
+                      <Icon className="w-6 h-6 text-gold" />
                     </div>
                     <div>
-                      <div className="text-2xl font-heading font-bold text-primary">
+                      <div className="text-2xl font-heading font-bold text-gray-900">
                         {achievement.number}
                       </div>
-                      <div className="text-sm font-semibold text-primary">
+                      <div className="text-sm font-semibold text-gold">
                         {achievement.label}
                       </div>
                     </div>
                   </div>
-                  <p className="text-sm text-primary">{achievement.description}</p>
+                  <p className="text-sm text-gray-700">{achievement.description}</p>
                 </Card>
               </motion.div>
             )
@@ -228,16 +228,16 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
               >
-                <Card className="p-8 bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 transition-all shadow-lg">
+                <Card className="p-8 bg-white border-2 border-gold/30 hover:border-gold transition-all shadow-lg">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-xl bg-primary/20 border border-primary/40 flex-shrink-0">
-                      <Icon className="w-6 h-6 text-primary" />
+                    <div className="p-3 rounded-xl bg-gold/20 border-2 border-gold/40 flex-shrink-0">
+                      <Icon className="w-6 h-6 text-gold" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-heading font-bold text-primary mb-2">
+                      <h4 className="text-xl font-heading font-bold text-gray-900 mb-2">
                         {value.title}
                       </h4>
-                      <p className="text-primary leading-relaxed">{value.description}</p>
+                      <p className="text-gray-700 leading-relaxed">{value.description}</p>
                     </div>
                   </div>
                 </Card>
@@ -254,11 +254,11 @@ export function AboutSection() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center"
         >
-          <Card className="p-8 bg-background/90 backdrop-blur-sm border-primary/30 shadow-xl inline-block">
-            <h3 className="text-2xl font-heading font-bold text-primary mb-4">
+          <Card className="p-8 bg-white border-2 border-gold/30 shadow-xl inline-block">
+            <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">
               Ready to Transform Your Business?
             </h3>
-            <p className="text-primary mb-6 max-w-2xl">
+            <p className="text-gray-700 mb-6 max-w-2xl">
               Join 3000+ entrepreneurs who have doubled their income through strategic execution.
               Book a free strategy call and discover how we can help you scale your business.
             </p>
