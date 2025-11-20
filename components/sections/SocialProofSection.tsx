@@ -70,7 +70,12 @@ function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardPr
 
   useEffect(() => {
     // Always show the value first, then animate if needed
-    if (!isVisible || hasAnimated) {
+    if (!isVisible) {
+      return
+    }
+
+    // Only animate once
+    if (hasAnimated) {
       return
     }
 
@@ -97,21 +102,21 @@ function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardPr
       const targetNum = parseInt(numericMatch[2], 10) * multiplier
       const suffix = numericMatch[3] || ""
       
-      // Reset to 0 for animation
-      if (isMillions) {
-        setDisplayValue(prefix + "0M+")
-      } else {
-        setDisplayValue(prefix + "0" + suffix)
-      }
-      
-      const duration = 2000
-      const steps = 60
-      const increment = targetNum / steps
-      let current = 0
-      let step = 0
-      
-      // Start animation after a brief delay
-      const timer = setTimeout(() => {
+      // Start animation from 0 after showing value briefly
+      const startAnimation = () => {
+        // Reset to 0 for animation
+        if (isMillions) {
+          setDisplayValue(prefix + "0M+")
+        } else {
+          setDisplayValue(prefix + "0" + suffix)
+        }
+        
+        const duration = 2000
+        const steps = 60
+        const increment = targetNum / steps
+        let current = 0
+        let step = 0
+        
         const intervalTimer = setInterval(() => {
           step++
           current += increment
@@ -127,9 +132,10 @@ function AnimatedStatCard({ label, value, index, isVisible }: AnimatedStatCardPr
             }
           }
         }, duration / steps)
-        
-        return () => clearInterval(intervalTimer)
-      }, 100)
+      }
+      
+      // Start animation after a brief delay to show value first
+      const timer = setTimeout(startAnimation, 500)
       
       return () => clearTimeout(timer)
     }
