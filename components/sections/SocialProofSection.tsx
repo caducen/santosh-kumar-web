@@ -157,8 +157,10 @@ export function SocialProofSection() {
   return (
     <section
       id="social-proof-section"
-      className="relative py-24 bg-gradient-to-b from-background/50 to-background"
+      className="relative py-24 bg-background"
     >
+      {/* Gold accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.div
