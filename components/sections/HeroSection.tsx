@@ -259,18 +259,17 @@ export function HeroSection() {
                     target.style.display = "none"
                     const parent = target.parentElement?.parentElement
                     if (parent && !parent.querySelector(".image-fallback")) {
-                        const fallback = document.createElement("div")
-                        fallback.className = "image-fallback absolute inset-0 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center"
-                        fallback.innerHTML = `
-                          <div class="text-center p-8">
-                            <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-white/20 border-2 border-white/30 flex items-center justify-center">
-                              <span class="text-4xl">👤</span>
-                            </div>
-                            <p class="text-white/60 text-sm">Bilden hittades inte</p>
+                      const fallback = document.createElement("div")
+                      fallback.className = "image-fallback absolute inset-0 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center"
+                      fallback.innerHTML = `
+                        <div class="text-center p-8">
+                          <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-white/20 border-2 border-white/30 flex items-center justify-center">
+                            <span class="text-4xl">👤</span>
                           </div>
-                        `
-                        parent.appendChild(fallback)
-                      }
+                          <p class="text-white/60 text-sm">Bilden hittades inte</p>
+                        </div>
+                      `
+                      parent.appendChild(fallback)
                     }
                   }}
                 />
