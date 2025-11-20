@@ -332,14 +332,14 @@ export function VideoBoxSection() {
               <div className="relative aspect-video bg-gradient-to-br from-primary via-secondary to-accent overflow-hidden">
                 {isYouTube && thumbnailUrl ? (
                   <>
-                    <img
+                    <Image
                       src={thumbnailUrl}
                       alt="Video thumbnail"
-                      className="absolute inset-0 w-full h-full object-cover"
-                      onError={(e) => {
-                        // Fallback to gradient if thumbnail fails to load
-                        const target = e.target as HTMLImageElement
-                        target.style.display = "none"
+                      fill
+                      className="object-cover"
+                      unoptimized
+                      onError={() => {
+                        // Fallback handled by gradient background
                       }}
                     />
                     <div className="absolute inset-0 bg-black/30" />
