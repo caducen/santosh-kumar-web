@@ -1,0 +1,23 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .logo-text {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        font-style: italic;
+        font-weight: bold;
+        letter-spacing: -1px;
+      }
+    </style>
+  </defs>
+  
+  <!-- Outer circle -->
+  <circle cx="40" cy="40" r="38" fill="none" stroke="white" stroke-width="2"/>
+  
+  <!-- Inner circle -->
+  <circle cx="40" cy="40" r="35" fill="none" stroke="white" stroke-width="1"/>
+  
+  <!-- SK initials in stylized script font -->
+  <text x="40" y="48" class="logo-text" font-size="36" fill="white" text-anchor="middle" dominant-baseline="middle">
+    SK
+  </text>
+</svg>

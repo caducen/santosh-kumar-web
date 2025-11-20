@@ -1,0 +1,19 @@
+<svg width="300" height="80" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo circle -->
+  <g>
+    <circle cx="40" cy="40" r="38" fill="none" stroke="white" stroke-width="2"/>
+    <circle cx="40" cy="40" r="35" fill="none" stroke="white" stroke-width="1"/>
+    <text x="40" y="50" font-family="serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle" style="font-style: italic; letter-spacing: -2px;">
+      SK
+    </text>
+  </g>
+  
+  <!-- Santosh Kumar text -->
+  <text x="90" y="35" font-family="serif" font-size="24" fill="white" style="font-style: italic; font-weight: 500;">
+    Santosh
+  </text>
+  <text x="90" y="60" font-family="serif" font-size="24" fill="white" style="font-style: italic; font-weight: 500;">
+    Kumar
+  </text>
+</svg>
+
