@@ -60,11 +60,11 @@ const values = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="relative pt-4 pb-24 lg:pt-6 lg:pb-32 overflow-hidden">
+    <section id="about" className="relative pt-4 pb-24 lg:pt-6 lg:pb-32 overflow-hidden bg-background">
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,64,175,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(124,58,237,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,64,175,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(124,58,237,0.15),transparent_50%)]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -84,7 +84,7 @@ export function AboutSection() {
               Forbes
             </span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
             A proven business strategist dedicated to helping entrepreneurs double their income
             through strategic execution and expert guidance.
           </p>
@@ -134,7 +134,7 @@ export function AboutSection() {
               <h3 className="text-2xl sm:text-3xl font-heading font-bold text-white">
                 The Journey
               </h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
+              <div className="space-y-4 text-gray-100 leading-relaxed">
                 <p>
                   Santosh Kumar's journey began with a simple belief: every entrepreneur has the
                   potential to build a thriving, scalable business. What separates the successful
@@ -157,11 +157,11 @@ export function AboutSection() {
             </div>
 
             {/* Mission */}
-            <Card className="p-6 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 border-primary/20 backdrop-blur-sm">
+            <Card className="p-6 bg-background/90 backdrop-blur-sm border-primary/30 shadow-lg">
               <h4 className="text-xl font-heading font-bold text-white mb-3">
                 The Mission
               </h4>
-              <p className="text-gray-200 leading-relaxed">
+              <p className="text-white leading-relaxed">
                 "My mission is to democratize business success. I believe that with the right
                 strategy, framework, and guidance, any entrepreneur can double their income and
                 build a business that not only survives but thrives. Every business owner deserves
