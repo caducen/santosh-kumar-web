@@ -119,12 +119,15 @@ function VideoModal({ isOpen, onClose, videoSrc, isYouTube = false }: VideoModal
             onClick={(e) => e.stopPropagation()}
           >
         {/* Close Button */}
-        <button
+        <motion.button
           onClick={onClose}
+          whileHover={{ scale: 1.1, rotate: 90 }}
+          whileTap={{ scale: 0.9 }}
           className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors"
+          aria-label="Close video"
         >
           <X className="w-6 h-6 text-white" />
-        </button>
+        </motion.button>
 
         {/* Video Player */}
         {isYouTube ? (
@@ -180,16 +183,19 @@ function VideoModal({ isOpen, onClose, videoSrc, isYouTube = false }: VideoModal
             </div>
 
             <div className="flex items-center gap-2">
-              <button
+              <motion.button
                 onClick={() => setIsMuted(!isMuted)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                aria-label={isMuted ? "Unmute" : "Mute"}
               >
                 {isMuted ? (
                   <VolumeX className="w-5 h-5 text-white" />
                 ) : (
                   <Volume2 className="w-5 h-5 text-white" />
                 )}
-              </button>
+              </motion.button>
 
               <input
                 type="range"
