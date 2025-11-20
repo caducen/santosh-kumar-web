@@ -143,7 +143,7 @@ export function Navigation() {
           className="container mx-auto px-4 sm:px-6 lg:px-8"
           aria-label="Main navigation"
         >
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-20 items-center justify-between">
             {/* Logo */}
             <Link
               href="/"
