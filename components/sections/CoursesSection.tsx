@@ -230,7 +230,6 @@ export function CoursesSection() {
               Book a Free Consultation
             </Button>
           </motion.div>
-          </Button>
         </motion.div>
       </div>
     </section>
