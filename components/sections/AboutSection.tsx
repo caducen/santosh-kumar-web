@@ -60,7 +60,7 @@ const values = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="about" className="relative pt-12 pb-24 lg:pt-16 lg:pb-32 overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,64,175,0.1),transparent_50%)]" />
