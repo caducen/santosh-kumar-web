@@ -365,15 +365,19 @@ export function SocialProofSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6"
         >
-          {stats.map((stat, index) => (
-            <AnimatedStatCard
-              key={stat.label}
-              label={stat.label}
-              value={stat.value}
-              index={index}
-              isVisible={isVisible}
-            />
-          ))}
+          {stats.map((stat, index) => {
+            // Debug: log the stat values
+            console.log(`Stat ${index}:`, stat.label, stat.value)
+            return (
+              <AnimatedStatCard
+                key={stat.label}
+                label={stat.label}
+                value={stat.value}
+                index={index}
+                isVisible={isVisible}
+              />
+            )
+          })}
         </motion.div>
       </div>
     </section>
