@@ -300,8 +300,7 @@ export function VideoBoxSection() {
   }, [])
 
   // YouTube video about business strategy and scaling businesses
-  // Replace with your actual YouTube video ID
-  const youtubeVideoId = "f6yA3t0n0NY" // Example: Extract ID from YouTube URL (e.g., https://www.youtube.com/watch?v=VIDEO_ID)
+  const youtubeVideoId = "WqPnu-C-aNQ" // From: https://www.youtube.com/watch?v=WqPnu-C-aNQ
   const videoSrc = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&rel=0&modestbranding=1`
   const thumbnailUrl = `https://img.youtube.com/vi/${youtubeVideoId}/maxresdefault.jpg`
   const isYouTube = true
